@@ -7,6 +7,7 @@
 {% block body %}
 {% load humanize %}
 {% load extras %}
+{% load static %}
 {% comment %} sidebr code {% endcomment %}
 <div class="sidebar">
     <p>Electronic Gadgets</p>
@@ -35,16 +36,25 @@
     <h2>({{comments.count}})Comments......</h2><br>
     <div class="container">
         <form action="/Electronics/postComment" method="post">
-            <input type="text"name="comment" placeholder="Enter your comment here" required>
+            <input type="text"name="comment" placeholder="Enter your comment here"class="inputarea" required>
             <input type="hidden"name="electronicsEle_id_sno"value="{{electronics.Ele_id_sno}}">
             <input type="hidden"name="Parentsno"value="">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit"class="submit-comment">
             {% csrf_token %}
         </form>
         {% for comment in comments  %}
-        <div class="row">
-            <div style="background-color:blue">image here</div>
-            <div style="background-color:green"><b>{{user.username}}{{comment.timestamp | naturaltime}}</b>{{comment.comment}}</div>
+        {% comment %} <div class="row">
+            <div>image here</div>
+            <div><b>{{user.username}}{{comment.timestamp | naturaltime}}</b>{{comment.comment}}</div>
+        </div> {% endcomment %}
+    <div class="comtBorder">
+        <div class="comment-row">
+            <div class="comment-image-container">
+                <img src="{% static 'bloghome/user-50.png' %}" alt="User Avatar" class="comment-image">
+            </div>
+            <div class="comment-text">
+                <b>{{user.username}}</b>{{comment.timestamp | naturaltime}} <br>{{comment.comment}}
+            </div>
         </div>
         <div class="comment-actions">
             <button class="reply-button" data-comment-id="{{ comment.Ele_id_sno}}">Reply</button>
@@ -60,23 +70,20 @@
                 <button class="cancel-reply">Cancel</button>
             </form>
         </div>
-        <div class="replies"style="background-color:red">
-            {% comment %} <h3>Replies:</h3> {% endcomment %}
-            {% comment %} {% for reply in comments %}
-                {% if reply.Parentsno == comment.Ele_id_sno %}
-                    <div class="reply"style="background-color:lightgreen">
-                        <div style="background-color:blue">image here</div>
-                        <div style="background-color:green"><b>{{user.username}}{{reply.timestamp | naturaltime}}</b>{{reply.comment}}</div>
-                    </div>
-                {% endif %}
-            {% endfor %} {% endcomment %}
+        <div class="replies">
             {% for reply in replyDict|get_val:comment.Ele_id_sno %}
-                {{reply.comment}}<b>{{reply.user.username}}</b>{{reply.timestamp | naturaltime}}
-                <br>
+                <div class="reply-row">
+                    <div class="reply-image-container">
+                        <img src="{% static 'bloghome/user-50.png' %}" alt="" class="reply-image">
+                    </div>
+                    <div class="reply-text">
+                        <b>{{reply.user.username}}</b>{{reply.comment.timestamp | naturaltime}} <br>{{reply.comment}}
+                    </div>
+                </div>
             {% endfor %}
         </div>
         <br>
-        {% comment %} <div class="replies-container" id="replies-{{ comment.Ele_id_sno }}"></div> {% endcomment %}
+    </div>
         {% endfor %}
     </div>
 </div>
