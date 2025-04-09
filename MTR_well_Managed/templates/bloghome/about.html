@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Title of about{% endblock %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'bloghome/about.css' %}">
+{% endblock %}
+{% block body %}
+<body>
+    <div class="about-section">
+        <h1>About Tech Reviews</h1>
+        <p>Welcome to Tech Reviews, your trusted source for in-depth and unbiased reviews of the latest technology products. We are passionate about helping you make informed decisions when it comes to your tech purchases.</p>
+
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide clear, concise, and honest reviews of gadgets, software, and other tech products. We strive to be your go-to resource for accurate information and expert opinions.</p>
+
+        <h2>What We Offer</h2>
+        <ul>
+            <li>Comprehensive product reviews</li>
+            <li>Detailed comparisons</li>
+            <li>Up-to-date tech news</li>
+            <li>Helpful buying guides</li>
+        </ul>
+
+        <h2>Our Team</h2>
+
+        <div class="team-member">
+            <img src="placeholder-profile.jpg" alt="Team Member 1">
+            <h3>John Doe</h3>
+            <p>Founder & Lead Reviewer</p>
+            <p>John has over 10 years of experience in the tech industry and is passionate about exploring new gadgets.</p>
+        </div>
+
+        <div class="team-member">
+            <img src="placeholder-profile.jpg" alt="Team Member 2">
+            <h3>Jane Smith</h3>
+            <p>Technical Writer</p>
+            <p>Jane is a skilled writer with a keen eye for detail, ensuring our reviews are accurate and easy to understand.</p>
+        </div>
+
+        <p>We are constantly working to improve our content and provide you with the best possible experience. If you have any feedback or suggestions, please don't hesitate to <a href="/contact">contact us</a>.</p>
+    </div>
+{% endblock  %}

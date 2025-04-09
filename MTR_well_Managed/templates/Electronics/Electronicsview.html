@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}{{electronics.product_name}}- My tech Reviews{% endblock %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'Electronics/Electronicsview.css' %}">
+{% endblock %}
+{% block body %}
+{% load humanize %}
+{% load extras %}
+{% comment %} sidebr code {% endcomment %}
+<div class="sidebar">
+    <p>Electronic Gadgets</p>
+    {% for i in elect_scroll %}
+        <a href="/Electronics/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
+    <p>Softwares</p>
+    {% comment %} {% for i in Softscroll %}
+        <a href="/softwares/{{i.id}}">{{i.software_name |slice:"0:23"}}</a>
+    {% endfor %} {% endcomment %}
+    <p>Gaming</p>
+    {% comment %} {% for i in Gamescroll %}
+        <a href="/games/{{i.id}}">{{i.game_name |slice:"0:23"}}</a>
+    {% endfor %} {% endcomment %}
+</div>
+{% comment %} sidebar ended {% endcomment %}
+<h2 id="hedding">{{electronics.product_header}}</h2><br>
+<div id="imgframe">
+    {% comment %} <img src="/media/{{allElectronic.image}}" alt=""> {% endcomment %}
+</div><br>
+<div id="contframe">
+    <p>{{electronics.desc|safe}}</p>
+</div><br><br>
+<hr>
+<div class="Cmtcontainer">
+    <h2>({{comments.count}})Comments......</h2><br>
+    <div class="container">
+        <form action="/Electronics/postComment" method="post">
+            <input type="text"name="comment" placeholder="Enter your comment here" required>
+            <input type="hidden"name="electronicsEle_id_sno"value="{{electronics.Ele_id_sno}}">
+            <input type="hidden"name="Parentsno"value="">
+            <input type="submit" value="Submit">
+            {% csrf_token %}
+        </form>
+        {% for comment in comments  %}
+        <div class="row">
+            <div style="background-color:blue">image here</div>
+            <div style="background-color:green"><b>{{user.username}}{{comment.timestamp | naturaltime}}</b>{{comment.comment}}</div>
+        </div>
+        <div class="comment-actions">
+            <button class="reply-button" data-comment-id="{{ comment.Ele_id_sno}}">Reply</button>
+        </div>
+        <div class="reply-form-container" id="reply-form-{{ comment.Ele_id_sno}}" style="display:none;">
+            <form action="/Electronics/postComment" method="post">
+                {% csrf_token %}
+                <input type="text"name="comment" placeholder="Write your reply..." class="inputarea" required>
+                <input type="hidden"name="Parentsno"value="{{comment.Ele_id_sno}}">
+                {% comment %} <textarea placeholder="Write your reply..."></textarea> {% endcomment %}
+                <input type="hidden"name="electronicsEle_id_sno"value="{{electronics.Ele_id_sno}}">
+                <button type="submit"class="submit-reply">Submit Reply</button>
+                <button class="cancel-reply">Cancel</button>
+            </form>
+        </div>
+        <div class="replies"style="background-color:red">
+            {% comment %} <h3>Replies:</h3> {% endcomment %}
+            {% comment %} {% for reply in comments %}
+                {% if reply.Parentsno == comment.Ele_id_sno %}
+                    <div class="reply"style="background-color:lightgreen">
+                        <div style="background-color:blue">image here</div>
+                        <div style="background-color:green"><b>{{user.username}}{{reply.timestamp | naturaltime}}</b>{{reply.comment}}</div>
+                    </div>
+                {% endif %}
+            {% endfor %} {% endcomment %}
+            {% for reply in replyDict|get_val:comment.Ele_id_sno %}
+                {{reply.comment}}<b>{{reply.user.username}}</b>{{reply.timestamp | naturaltime}}
+                <br>
+            {% endfor %}
+        </div>
+        <br>
+        {% comment %} <div class="replies-container" id="replies-{{ comment.Ele_id_sno }}"></div> {% endcomment %}
+        {% endfor %}
+    </div>
+</div>
+<br><br>
+<div class="Related_Cont">
+    <h2>Related Articles...</h2>
+    {% for i in elect_scroll %}
+            <div class="card"> 
+                {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+                <h3>{{i.product_header |slice:"0:93"}}...</h3>
+                <a href="/Electronics/{{i.slug}}">Read Review</a>
+            </div>
+            <br><br>
+    {% endfor %}
+</div>
+<br><br><br><br><br>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const replyButtons = document.querySelectorAll('.reply-button');
+
+        replyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const commentId = this.dataset.commentId;
+                const replyForm = document.getElementById(`reply-form-${commentId}`);
+                replyForm.style.display = 'block'; // Show the reply form
+            });
+        });
+
+        const cancelReplyButtons = document.querySelectorAll('.cancel-reply');
+        cancelReplyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const replyFormContainer = this.closest('.reply-form-container');
+                if (replyFormContainer) {
+                    replyFormContainer.style.display = 'none'; // Hide the reply form
+                }
+            });
+        });
+
+        const submitReplyButtons = document.querySelectorAll('.submit-reply');
+        submitReplyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const replyFormContainer = this.closest('.reply-form-container');
+                const commentId = this.closest('.comment-container').querySelector('.reply-button').dataset.commentId;
+                const textarea = replyFormContainer.querySelector('textarea');
+                const replyText = textarea.value.trim();
+
+                if (replyText) {
+                    // In a real application, you would send this replyText
+                    // and the commentId to your server to be processed.
+                    console.log(`Replying to comment ${commentId} with: ${replyText}`);
+
+                    // For this basic example, we'll just clear the textarea and hide the form
+                    textarea.value = '';
+                    replyFormContainer.style.display = 'none';
+
+                    // In a real application, you would also fetch and display the new reply here.
+                    const repliesContainer = document.getElementById(`replies-${commentId}`);
+                    const newReply = document.createElement('div');
+                    newReply.textContent = `You replied: ${replyText}`;
+                    repliesContainer.appendChild(newReply);
+                } else {
+                    alert('Please enter your reply.');
+                }
+            });
+        });
+    });
+
+</script>
+{% endblock  %}

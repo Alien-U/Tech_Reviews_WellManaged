@@ -1,0 +1,31 @@
+
+.A
+{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+      .about-section {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+
+
+      p {
+          margin-bottom: 15px;
+      }
+
+      .team-member {
+          border: 1px solid #d73f3f;
+          padding: 15px;
+          margin-bottom: 20px;
+          border-radius: 5px;
+      }
+
+      .team-member img {
+          max-width: 150px;
+          height: auto;
+          border-radius: 50%;
+          display: block;
+          margin: 0 auto 10px;
+      }

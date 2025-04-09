@@ -1,0 +1,54 @@
+
+.C
+{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+  
+  h4{
+      text-align:center;
+      color:gray;
+      margin-top:5%;
+  }
+  form {
+      max-width: 600px;
+      margin: 0 auto;
+  }
+
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+
+  input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+  }
+
+  button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #0056b3;
+  }
+
+/* {% comment %} css if user is not logined {% endcomment %} */
+  .container {
+      text-align: center;
+      background: #ffffff;
+      padding:19% 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 234, 255, 0.1);
+  }
+  .message {
+      font-size: 28px;
+      color: rgba(85, 85, 85, 0.6);
+  }

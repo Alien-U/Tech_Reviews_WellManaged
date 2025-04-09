@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bloghome/LoginSignup.css' %}">
+</head>
+<body>
+
+    <div class="loginContainer" id="loginContainer">
+        <div class="login" id="login">
+            <form id="loginForm" action="/login" method="post">
+                <br>
+                <h2><i>Login :</i></h2>
+                <br><input type="text" placeholder="Username" id="Loginusername" name="Loginusername"><br>
+                <input type="password" placeholder="Password" required id="LoginPass" name="LoginPass"><br>
+                <br><br>
+                <input id="butn" type="submit" value="Login">
+                {% csrf_token %}
+            </form>
+            <p class="toggle-form" onclick="toggleForms('SignUpContainer', 'loginContainer')">Signup</p>
+        </div>
+    </div>
+
+    <div class="SignUpContainer hidden" id="SignUpContainer">
+        <div class="SignUp" id="SignUp">
+            <form action="/signup" method="post" id="signupForm">
+                <br>
+                <h2><i>Sign Up</i></h2>
+                <input type="text" placeholder="Username" id="username" name="username"><br>
+                <input type="text" placeholder="First name" id="Fname" name="Fname"><br>
+                <input type="text" placeholder="Last name" id="Lname" name="Lname"><br>
+                <input type="email" placeholder="Email" required id="Email" name="Email"><br>
+                <input type="password" placeholder="Password" required id="Password" name="Password"><br><br>
+                <input id="butn" type="submit" value="SignUp" name="SignUp">
+                {% csrf_token %}
+            </form>
+            <p class="toggle-form" onclick="toggleForms('loginContainer', 'SignUpContainer')">Login</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms(showFormId, hideFormId) {
+            document.getElementById(hideFormId).classList.add('hidden');
+            document.getElementById(showFormId).classList.remove('hidden');
+        }
+
+        //login is default, so signup is hidden.
+    </script>
+
+</body>
+</html>

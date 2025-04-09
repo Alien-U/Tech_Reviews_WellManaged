@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <header>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+      <p id="brandLogo"><i>Tech Reviews India</i></p>
+      {% if user.is_authenticated %}
+        <img src="{% static 'bloghome/user-50.png' %}" alt="" id="Usericon" onclick="opendrop()" height="39px" width="39px">
+      {% else %}
+        <a href="/loginSignup"><img src="{% static 'bloghome/Createaccount.png' %}" alt=""  id="Usericon" height="39px" width="39px"></a>
+      {% endif %}
+      <nav>
+          <ul id="navbar-ul">
+              <li><a href="/" class="H">Home</a></li>
+              <li><a href="/Electronics" class="G">Electronics</a></li>
+              <li><a href="/software" class="S">Software</a></li>
+              <li><a href="/gaming" class="g">Gaming</a></li>
+              <li><a href="/about" class="A">About</a></li>
+              <li><a href="/contact" class="C">Contact</a></li>
+          </ul>
+      </nav>
+  </header>
+
+    {% comment %} ------------dropdowndiv------------------- {% endcomment %}
+    <div class="DropContainer"id="DropContainer">
+      <div class="Drop"id="Drop">
+        <img src="close.png" height="15px"width="15px"id="close"onclick="closedrop()">
+          <br><br><br>
+            <li class="list"><a href="/logout"class="link">Logout</a></li>
+      </div>
+    </div>
+    {% comment %} --------------end-------------------- {% endcomment %}
+  {% load static %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% block body %}{% endblock %}
+    <footer>
+        <p>&copy; 2023 Tech Reviews</p>
+    </footer>
+
+</body>
+<script>
+  {% comment %} responsive header {% endcomment %}
+  // script.js
+function toggleMenu() {
+  const navbarUl = document.getElementById('navbar-ul');
+  navbarUl.classList.toggle('active');
+}
+
+// Example functions for buttons (replace with your actual logic)
+
+function opendrop() {
+  alert('User icon clicked');
+}
+  {% comment %} responsive header ended {% endcomment %}
+  {% comment %} ----------------*forDropdown*--------------- {% endcomment %}
+  let drop = document.getElementById("DropContainer");
+  function opendrop()
+  {
+    drop.classList.add("openDropContainer");
+  } 
+  function closedrop()
+  {
+    drop.classList.remove("openDropContainer");
+  }
+</script>
+</html>
