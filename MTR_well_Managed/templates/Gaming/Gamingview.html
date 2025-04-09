@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{electronics.product_name}}- My tech Reviews{% endblock %}
+{% block title %}{{Gaming.product_name}}- My tech Reviews{% endblock %}
 {% block head_extra %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'Electronics/Electronicsview.css' %}">
+    <link rel="stylesheet" href="{% static 'Gaming/Gamingview.css' %}">
 {% endblock %}
 {% block body %}
 {% load humanize %}
@@ -11,38 +11,40 @@
 {% comment %} sidebr code {% endcomment %}
 <div class="sidebar">
     <p>Electronic Gadgets</p>
-    {% for i in elect_scroll %}
-        <a href="/Electronics/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
-    {% endfor %}
+    {% comment %} {% for i in Prodscroll %}
+        <a href="/products/{{i.id}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %} {% endcomment %}
     <p>Softwares</p>
     {% comment %} {% for i in Softscroll %}
         <a href="/softwares/{{i.id}}">{{i.software_name |slice:"0:23"}}</a>
     {% endfor %} {% endcomment %}
     <p>Gaming</p>
-    {% comment %} {% for i in Gamescroll %}
-        <a href="/games/{{i.id}}">{{i.game_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in Gme_scroll %}
+        <a href="/Gaming/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
-<h2 id="hedding">{{electronics.product_header}}</h2><br>
+<h2 id="hedding">{{gaming.product_header}}</h2><br>
 <div id="imgframe">
-    {% comment %} <img src="/media/{{allElectronic.image}}" alt=""> {% endcomment %}
+    {% comment %} <img src="/media/{{Gaming.image}}" alt=""> {% endcomment %}
 </div><br>
 <div id="contframe">
-    <p>{{electronics.desc|safe}}</p>
+    <p>{{gaming.desc|safe}}</p>
 </div><br><br>
 <hr>
+
+
 <div class="Cmtcontainer">
     <h2>({{comments.count}})Comments......</h2><br>
     <div class="container">
-        <form action="/Electronics/postComment" method="post">
+        <form action="/Gaming/postComment" method="post">
             <input type="text"name="comment" placeholder="Enter your comment here"class="inputarea" required>
-            <input type="hidden"name="electronicsEle_id_sno"value="{{electronics.Ele_id_sno}}">
+            <input type="hidden"name="gamingGme_id_sno"value="{{gaming.Gme_id_sno}}">
             <input type="hidden"name="Parentsno"value="">
             <input type="submit" value="Submit"class="submit-comment">
             {% csrf_token %}
         </form>
-        {% for comment in comments  %}
+    {% for comment in comments  %}
     <div class="comtBorder">
         <div class="comment-row">
             <div class="comment-image-container">
@@ -53,21 +55,21 @@
             </div>
         </div>
         <div class="comment-actions">
-            <button class="reply-button" data-comment-id="{{ comment.Ele_id_sno}}">Reply</button>
+            <button class="reply-button" data-comment-id="{{ comment.Gme_id_sno}}">Reply</button>
         </div>
-        <div class="reply-form-container" id="reply-form-{{ comment.Ele_id_sno}}" style="display:none;">
-            <form action="/Electronics/postComment" method="post">
+        <div class="reply-form-container" id="reply-form-{{ comment.Gme_id_sno}}" style="display:none;">
+            <form action="/Gaming/postComment" method="post">
                 {% csrf_token %}
                 <input type="text"name="comment" placeholder="Write your reply..." class="inputarea" required>
-                <input type="hidden"name="Parentsno"value="{{comment.Ele_id_sno}}">
+                <input type="hidden"name="Parentsno"value="{{comment.Gme_id_sno}}">
                 {% comment %} <textarea placeholder="Write your reply..."></textarea> {% endcomment %}
-                <input type="hidden"name="electronicsEle_id_sno"value="{{electronics.Ele_id_sno}}">
+                <input type="hidden"name="gamingGme_id_sno"value="{{gaming.Gme_id_sno}}">
                 <button type="submit"class="submit-reply">Submit Reply</button>
                 <button class="cancel-reply">Cancel</button>
             </form>
         </div>
         <div class="replies">
-            {% for reply in replyDict|get_val:comment.Ele_id_sno %}
+            {% for reply in replyDict|get_val:comment.Gme_id_sno %}
                 <div class="reply-row">
                     <div class="reply-image-container">
                         <img src="{% static 'bloghome/user-50.png' %}" alt="" class="reply-image">
@@ -84,19 +86,20 @@
     </div>
 </div>
 <br><br>
+
+<br><br>
 <div class="Related_Cont">
     <h2>Related Articles...</h2>
-    {% for i in elect_scroll %}
+    {% for i in Gme_scroll %}
             <div class="card"> 
                 {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
                 <h3>{{i.product_header |slice:"0:93"}}...</h3>
-                <a href="/Electronics/{{i.slug}}">Read Review</a>
+                <a href="/Games/{{i.slug}}">Read Review</a>
             </div>
             <br><br>
     {% endfor %}
 </div>
 <br><br><br><br><br>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const replyButtons = document.querySelectorAll('.reply-button');

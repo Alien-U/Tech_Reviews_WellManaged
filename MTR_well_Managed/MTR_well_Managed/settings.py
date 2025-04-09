@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bloghome.apps.BloghomeConfig',
     'Electronics.apps.ElectronicsConfig',
+    'Gaming.apps.GamingConfig',
     'django.contrib.humanize',
 ]
 

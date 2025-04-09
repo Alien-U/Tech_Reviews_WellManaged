@@ -21,7 +21,6 @@ def Electronicpost(request,slug):
             replyDict[reply.parent.Ele_id_sno]=[reply]
         else:
             replyDict[reply.parent.Ele_id_sno].append(reply)
-    print(replyDict)
     params={'electronics':electronics,'elect_scroll':Elect_scroll,'comments':comments,'replyDict':replyDict}
     return render(request,'Electronics/Electronicsview.html',params)
 

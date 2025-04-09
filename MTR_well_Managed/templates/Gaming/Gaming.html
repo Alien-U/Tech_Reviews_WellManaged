@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Title of gaming{% endblock %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'Gaming/Gaming.css' %}">
+{% endblock %}
+{% block body %}
+<section class="gadget-categories">
+    <br><br>
+    <h2>Browse by Category</h2>
+    <ul>
+        <li><a href="#">Mobile</a></li>
+        <li><a href="#">Xbox</a></li>
+        <li><a href="#">Windows</a></li>
+        <li><a href="#">Mac</a></li>
+        <li><a href="#">Consols</a></li>
+        <li><a href="#">Vr</a></li>
+    </ul>
+</section>
+<section class="featured-gadgets">
+    <h2>Featured Gadgets</h2>
+    <div class="gadget-cards">
+      <div class="card-flexbox"> 
+      {% for i in allGaming %}
+        <div class="card"> 
+            {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+            <h3>{{i.product_header}}</h3>
+            <p>{{i.product_desc|slice:"0:103"|safe}}...</p>
+            <a href="{{i.slug}}}">Read Review</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
+{% endblock  %}
