@@ -14,7 +14,7 @@ class Electronics(models.Model):
     author = models.CharField(max_length=13,default="")
     slug=models.CharField(max_length=100)
     pub_date = models.DateField()
-    # image=models.ImageField(upload_to="shome/images",default="")
+    image=models.ImageField(upload_to="Electronics/images",default="")
 
     def __str__(self):
         return self.product_header+' by '+self.author

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{Gaming.product_name}}- My tech Reviews{% endblock %}
+{% block title %}{{Software.product_name}}- My tech Reviews{% endblock %}
 {% block head_extra %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'Gaming/Gamingview.css' %}">
+    <link rel="stylesheet" href="{% static 'Software/Softwareview.css' %}">
 {% endblock %}
 {% block body %}
 {% load humanize %}
@@ -11,35 +11,34 @@
 {% comment %} sidebr code {% endcomment %}
 <div class="sidebar">
     <p>Electronic Gadgets</p>
-    {% comment %} {% for i in Elect_scroll %}
-        <a href="/products/{{i.id}}">{{i.product_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in Elect_Scroll %}
+        <a href="/Electronics/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
     <p>Softwares</p>
-   {% comment %} {% for i in Softscroll %}
-        <a href="/softwares/{{i.id}}">{{i.software_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in Soft_scroll %}
+        <a href="/Software/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
     <p>Gaming</p>
-    {% for i in Gme_scroll %}
-        <a href="/Gaming/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% for i in gamescroll %}
+        <a href="/Gaming/{{i.id}}">{{i.product_name  |slice:"0:23"}}</a>
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
-<h2 id="hedding">{{gaming.product_header}}</h2><br>
+<h2 id="hedding">{{software.product_header}}</h2><br>
 <div id="imgframe">
-    <img src="/media/{{gaming.image}}" alt="">
+    {% comment %} <img src="/media/{{software.image}}" alt=""> {% endcomment %}
 </div><br>
 <div id="contframe">
-    <p>{{gaming.desc|safe}}</p>
+    <p>{{software.desc|safe}}</p>
 </div><br><br>
 <hr>
-
 
 <div class="Cmtcontainer">
     <h2>({{comments.count}})Comments......</h2><br>
     <div class="container">
-        <form action="/Gaming/postComment" method="post">
+        <form action="/Software/postComment" method="post">
             <input type="text"name="comment" placeholder="Enter your comment here"class="inputarea" required>
-            <input type="hidden"name="gamingGme_id_sno"value="{{gaming.Gme_id_sno}}">
+            <input type="hidden"name="softwareSoft_id_sno"value="{{software.Soft_id_sno}}">
             <input type="hidden"name="Parentsno"value="">
             <input type="submit" value="Submit"class="submit-comment">
             {% csrf_token %}
@@ -55,21 +54,21 @@
             </div>
         </div>
         <div class="comment-actions">
-            <button class="reply-button" data-comment-id="{{ comment.Gme_id_sno}}">Reply</button>
+            <button class="reply-button" data-comment-id="{{ comment.Soft_id_sno}}">Reply</button>
         </div>
-        <div class="reply-form-container" id="reply-form-{{ comment.Gme_id_sno}}" style="display:none;">
-            <form action="/Gaming/postComment" method="post">
+        <div class="reply-form-container" id="reply-form-{{ comment.Soft_id_sno}}" style="display:none;">
+            <form action="/Software/postComment" method="post">
                 {% csrf_token %}
                 <input type="text"name="comment" placeholder="Write your reply..." class="inputarea" required>
-                <input type="hidden"name="Parentsno"value="{{comment.Gme_id_sno}}">
+                <input type="hidden"name="Parentsno"value="{{comment.Soft_id_sno}}">
                 {% comment %} <textarea placeholder="Write your reply..."></textarea> {% endcomment %}
-                <input type="hidden"name="gamingGme_id_sno"value="{{gaming.Gme_id_sno}}">
+                <input type="hidden"name="softwareSoft_id_sno"value="{{software.Soft_id_sno}}">
                 <button type="submit"class="submit-reply">Submit Reply</button>
                 <button class="cancel-reply">Cancel</button>
             </form>
         </div>
         <div class="replies">
-            {% for reply in replyDict|get_val:comment.Gme_id_sno %}
+            {% for reply in replyDict|get_val:comment.Soft_id_sno %}
                 <div class="reply-row">
                     <div class="reply-image-container">
                         <img src="{% static 'bloghome/user-50.png' %}" alt="" class="reply-image">
@@ -85,16 +84,15 @@
         {% endfor %}
     </div>
 </div>
-<br><br>
 
 <br><br>
 <div class="Related_Cont">
     <h2>Related Articles...</h2>
-    {% for i in Gme_scroll %}
+    {% for i in Soft_scroll %}
             <div class="card"> 
-                <img src="/media/{{i.image}}" alt="Smartphone">
+                {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
                 <h3>{{i.product_header |slice:"0:93"}}...</h3>
-                <a href="/Games/{{i.slug}}">Read Review</a>
+                <a href="/Software/{{i.slug}}">Read Review</a>
             </div>
             <br><br>
     {% endfor %}

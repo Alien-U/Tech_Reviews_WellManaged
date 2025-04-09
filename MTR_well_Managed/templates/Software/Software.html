@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Title of Softwares{% endblock %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'Software/Software.css' %}">
+{% endblock %}
+{% block body %}
+<section class="gadget-categories">
+    <br><br>
+    <h2>Browse by Category</h2>
+    <ul>
+        <li><a href="#">App</a></li>
+        <li><a href="#">Websites</a></li>
+        <li><a href="#">AI</a></li>
+        <li><a href="#">System</a></li>
+        <li><a href="#">Antivirus</a></li>
+    </ul>
+</section>
+<section class="featured-gadgets">
+    <h2>Featured Gadgets</h2>
+    <div class="gadget-cards">
+      <div class="card-flexbox"> 
+      {% for i in  allSoftware %}
+        <div class="card"> 
+            {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+            <h3>{{i.product_header}}</h3>
+            <p>{{i.desc|slice:"0:103"|safe}}...</p>
+            <a href="{{i.slug}}}">Read Review</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
+{% endblock  %}
