@@ -134,6 +134,24 @@
 }
 
 /* Styling for the comment functionality */
+.Comt_Log_msg {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Comt_Log_msg .message {
+    color: #6c6b6b;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
 .comtBorder
 {
     box-shadow: 2px 3px 5px rgba(40, 40, 40, 0.1);

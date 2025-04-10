@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
+from tinymce.models import HTMLField
+
 # Create your models here.
 class Electronics(models.Model):
     Ele_id_sno = models.AutoField(primary_key=True)
@@ -9,8 +11,7 @@ class Electronics(models.Model):
     category=models.CharField(max_length=50,default="")
     subcategory=models.CharField(max_length=50,default="")
     price=models.IntegerField(default=0)
-    desc = models.CharField(max_length=3000)
-    # desc=HTMLField()
+    desc=HTMLField()
     author = models.CharField(max_length=13,default="")
     slug=models.CharField(max_length=100)
     pub_date = models.DateField()

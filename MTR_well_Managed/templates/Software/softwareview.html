@@ -36,6 +36,7 @@
 <div class="Cmtcontainer">
     <h2>({{comments.count}})Comments......</h2><br>
     <div class="container">
+    {% if user.is_authenticated %}
         <form action="/Software/postComment" method="post">
             <input type="text"name="comment" placeholder="Enter your comment here"class="inputarea" required>
             <input type="hidden"name="softwareSoft_id_sno"value="{{software.Soft_id_sno}}">
@@ -43,6 +44,11 @@
             <input type="submit" value="Submit"class="submit-comment">
             {% csrf_token %}
         </form>
+        {% else %}
+        <div class="Comt_Log_msg">
+            <div class="message">Please login or SignUp to comment and reply</div>
+        </div>
+    {% endif %}
     {% for comment in comments  %}
     <div class="comtBorder">
         <div class="comment-row">
@@ -50,12 +56,15 @@
                 <img src="{% static 'bloghome/user-50.png' %}" alt="User Avatar" class="comment-image">
             </div>
             <div class="comment-text">
-                <b>{{user.username}}</b>{{comment.timestamp | naturaltime}} <br>{{comment.comment}}
+                <b>{{comment.user.username}}</b>{{comment.timestamp | naturaltime}} <br>{{comment.comment}}
             </div>
         </div>
+    {% if user.is_authenticated %}
         <div class="comment-actions">
             <button class="reply-button" data-comment-id="{{ comment.Soft_id_sno}}">Reply</button>
         </div>
+    {% else %}
+    {% endif %}
         <div class="reply-form-container" id="reply-form-{{ comment.Soft_id_sno}}" style="display:none;">
             <form action="/Software/postComment" method="post">
                 {% csrf_token %}

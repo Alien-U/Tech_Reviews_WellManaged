@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Gaming.apps.GamingConfig',
     'Software.apps.SoftwareConfig',
     'django.contrib.humanize',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

@@ -57,7 +57,7 @@
                 <img src="{% static 'bloghome/user-50.png' %}" alt="User Avatar" class="comment-image">
             </div>
             <div class="comment-text">
-                <b>{{user.username}}</b>{{comment.timestamp | naturaltime}} <br>{{comment.comment}}
+                <b>{{comment.user.username}}</b>{{comment.timestamp | naturaltime}} <br>{{comment.comment}}
             </div>
         </div>
     {% if user.is_authenticated %}
