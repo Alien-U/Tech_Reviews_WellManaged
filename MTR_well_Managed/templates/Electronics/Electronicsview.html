@@ -11,22 +11,22 @@
 {% comment %} sidebr code {% endcomment %}
 <div class="sidebar">
     <p>Electronic Gadgets</p>
-    {% for i in elect_scroll %}
+    {% for i in Elect_Scroll %}
         <a href="/Electronics/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
     {% endfor %}
     <p>Softwares</p>
-    {% comment %} {% for i in Softscroll %}
-        <a href="/softwares/{{i.id}}">{{i.software_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in Soft_scroll %}
+        <a href="/Software/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
     <p>Gaming</p>
-    {% comment %} {% for i in Gamescroll %}
-        <a href="/games/{{i.id}}">{{i.game_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in gamescroll %}
+        <a href="/Gaming/{{i.slug}}">{{i.product_name  |slice:"0:23"}}</a>
+    {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
 <h2 id="hedding">{{electronics.product_header}}</h2><br>
 <div id="imgframe">
-    {% comment %} <img src="/media/{{allElectronic.image}}" alt=""> {% endcomment %}
+    <img src="/media/{{electronics.image}}" alt="">
 </div><br>
 <div id="contframe">
     <p>{{electronics.desc|safe}}</p>
@@ -86,9 +86,9 @@
 <br><br>
 <div class="Related_Cont">
     <h2>Related Articles...</h2>
-    {% for i in elect_scroll %}
-            <div class="card"> 
-                {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+    {% for i in Elect_Scroll %}
+            <div class="card">
+                <img src="/media/{{i.image}}" alt="Smartphone">
                 <h3>{{i.product_header |slice:"0:93"}}...</h3>
                 <a href="/Electronics/{{i.slug}}">Read Review</a>
             </div>

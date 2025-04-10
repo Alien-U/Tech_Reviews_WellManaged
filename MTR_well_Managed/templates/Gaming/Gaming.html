@@ -23,7 +23,7 @@
       <div class="card-flexbox"> 
       {% for i in allGaming %}
         <div class="card"> 
-            {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+            <img src="/media/{{i.image}}" alt="Smartphone">
             <h3>{{i.product_header}}</h3>
             <p>{{i.product_desc|slice:"0:103"|safe}}...</p>
             <a href="{{i.slug}}}">Read Review</a>

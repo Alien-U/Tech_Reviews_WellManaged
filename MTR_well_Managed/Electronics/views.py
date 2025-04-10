@@ -1,5 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from.models import Electronics,ElectronicComment
+from Gaming.models import Gaming
+from Software.models import Software
 from.templatetags import extras
 # Create your views here.
 def electronics(request):
@@ -9,9 +11,9 @@ def electronics(request):
     return render(request,'Electronics/Electronics.html',params)
 
 def Electronicpost(request,slug):
-    # softscroll=Softwarez.objects.all()
-    Elect_scroll=Electronics.objects.all()
-    # gamescroll=Gaming.objects.all()
+    Elect_Scroll=Electronics.objects.all()
+    Soft_scroll=Software.objects.all()
+    gamescroll=Gaming.objects.all()
     electronics=Electronics.objects.filter(slug=slug).first()
     comments=ElectronicComment.objects.filter(electronics=electronics,parent=None)
     replies=ElectronicComment.objects.filter(electronics=electronics).exclude(parent=None)
@@ -21,7 +23,7 @@ def Electronicpost(request,slug):
             replyDict[reply.parent.Ele_id_sno]=[reply]
         else:
             replyDict[reply.parent.Ele_id_sno].append(reply)
-    params={'electronics':electronics,'elect_scroll':Elect_scroll,'comments':comments,'replyDict':replyDict}
+    params={'electronics':electronics,'Soft_scroll':Soft_scroll,'Elect_Scroll':Elect_Scroll,'gamescroll':gamescroll,'comments':comments,'replyDict':replyDict}
     return render(request,'Electronics/Electronicsview.html',params)
 
 def postComment(request):

@@ -24,7 +24,7 @@
           <div class="card-flexbox"> 
           {% for i in allElectronic %}
             <div class="card"> 
-                {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+                <img src="/media/{{i.image}}" alt="Smartphone">
                 <h3>{{i.product_header |slice:"0:23"}}...</h3>
                 <p>{{i.desc|slice:"0:103"|safe}}...</p>
                 <a href="{{i.slug}}">Read Review</a>

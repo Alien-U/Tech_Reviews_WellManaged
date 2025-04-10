@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .H
+    {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+  /* Hero section styles */
+  .hero {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 5rem 0;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 6vh;
+  }
+  
+  .hero h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .hero button {
+    background-color: rgb(0, 100, 193);
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Featured reviews styles */
+  .featured-reviews {
+    padding: 4rem 0;
+  }
+  
+  .featured-reviews h2 {
+    text-align: center;
+    /* border: solid rgb(0, 166, 255); */
+    width: 30%;
+    margin: 0 auto; /* Center the h2 */
+    background-color:#002a54 ;
+    color: #fff;
+    margin-top:10px;
+    border-radius: 5px;
+  }
+  .review-cards {
+    margin-left:3%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
+    gap: 25px; /* Adjust spacing between cards */
+  }
+  
+  .card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  /* Latest news styles */
+  .latest-news {
+    padding: 4rem 0;
+    border:solid red;
+  }
+  
+  .news-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border:solid rgb(0, 80, 7);
+  }
+  
+  article {
+    width: 300px;
+    margin-bottom: 2rem;
+    border:solid red;
+  }
+  /* Responsiveness */
+  /* General Reset */
+  
+  /* Media Queries for Responsiveness */
+  
+  /* For tablets and smaller screens */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1rem;
+      width: 100%;
+    }
+  
+    .hero-content {
+      max-width: 100%;
+      margin-top: 3vh;
+    }
+  
+    .featured-reviews h2 {
+      width: auto; /* Full-width headline for better fit */
+    }
+  
+   .review-cards {
+      flex-direction: column; /*Stack cards vertically */
+      align-items: center;
+    } 
+    .card {
+      width: 90%; /* Adjust card width */
+    }
+  
+    .latest-news {
+      padding: 2rem 0;
+    }
+  
+    .news-feed {
+      flex-direction: column; /* Stack articles vertically */
+      align-items: center;
+    }
+  
+    article {
+      width: 90%; /* Adjust article width */
+    }
+  }
+  
+  /* For mobile screens */
+  @media (max-width: 480px) {
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+  
+    .hero button {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  
+    .review-cards {
+      gap: 15px; /* Reduce spacing */
+    }
+  
+    .card {
+      padding: 1.5rem;
+    }
+  
+    article {
+      margin-bottom: 1rem;
+    }
+  }

@@ -1,11 +1,23 @@
 from django.shortcuts import render,HttpResponse,redirect
 from.models import Contact
+
+from Electronics.models import Electronics
+from Gaming.models import Gaming
+from Software.models import Software
+
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 # Create your views here.
+# def home(request):
+#     return render(request,'bloghome/index.html')
+
 def home(request):
-    return render(request,'bloghome/index.html')
+    Elect_Scroll=Electronics.objects.all()
+    Soft_scroll=Software.objects.all()
+    gamescroll=Gaming.objects.all()
+    params={'Soft_scroll':Soft_scroll,'Elect_Scroll':Elect_Scroll,'gamescroll':gamescroll,}
+    return render(request,'bloghome/index.html',params)
 
 def contact(request):
     if request.method=="POST":

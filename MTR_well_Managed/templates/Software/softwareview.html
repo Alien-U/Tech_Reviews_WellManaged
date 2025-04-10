@@ -20,13 +20,13 @@
     {% endfor %}
     <p>Gaming</p>
     {% for i in gamescroll %}
-        <a href="/Gaming/{{i.id}}">{{i.product_name  |slice:"0:23"}}</a>
+        <a href="/Gaming/{{i.slug}}">{{i.product_name  |slice:"0:23"}}</a>
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
 <h2 id="hedding">{{software.product_header}}</h2><br>
 <div id="imgframe">
-    {% comment %} <img src="/media/{{software.image}}" alt=""> {% endcomment %}
+    <img src="/media/{{software.image}}" alt="">
 </div><br>
 <div id="contframe">
     <p>{{software.desc|safe}}</p>
@@ -90,7 +90,7 @@
     <h2>Related Articles...</h2>
     {% for i in Soft_scroll %}
             <div class="card"> 
-                {% comment %} <img src="/media/{{i.image}}" alt="Smartphone"> {% endcomment %}
+                <img src="/media/{{i.image}}" alt="Smartphone">
                 <h3>{{i.product_header |slice:"0:93"}}...</h3>
                 <a href="/Software/{{i.slug}}">Read Review</a>
             </div>

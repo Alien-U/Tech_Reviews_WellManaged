@@ -11,16 +11,16 @@
 {% comment %} sidebr code {% endcomment %}
 <div class="sidebar">
     <p>Electronic Gadgets</p>
-    {% comment %} {% for i in Elect_scroll %}
-        <a href="/products/{{i.id}}">{{i.product_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in Elect_Scroll %}
+        <a href="/Electronics/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
     <p>Softwares</p>
-   {% comment %} {% for i in Softscroll %}
-        <a href="/softwares/{{i.id}}">{{i.software_name |slice:"0:23"}}</a>
-    {% endfor %} {% endcomment %}
+    {% for i in Soft_scroll %}
+        <a href="/Software/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% endfor %}
     <p>Gaming</p>
-    {% for i in Gme_scroll %}
-        <a href="/Gaming/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+    {% for i in gamescroll %}
+        <a href="/Gaming/{{i.slug}}">{{i.product_name  |slice:"0:23"}}</a>
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
