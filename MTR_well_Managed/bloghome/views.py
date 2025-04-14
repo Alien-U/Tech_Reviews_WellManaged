@@ -71,3 +71,10 @@ def handleLogout(request):
     messages.success(request,"successfully logged out")
     return redirect('/')
     # return HttpResponse("handleLogout")
+def search(request):
+    query=request.GET['query']
+    allElects=Electronics.objects.filter(product_header__icontains=query)
+    allSofts=Software.objects.filter(product_header__icontains=query)
+    allGames=Gaming.objects.filter(product_header__icontains=query)
+    params={'allElects':allElects,'allSofts':allSofts,'allGames':allGames,'query':query}
+    return render(request,'bloghome/search.html',params)

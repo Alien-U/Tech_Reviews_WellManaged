@@ -16,6 +16,10 @@
         <div class="bar"></div>
     </div>
       <p id="brandLogo"><i>Tech Reviews India</i></p>
+      <form action="/search"method="get">
+        <input type="search"name="query" placeholder="Search" id="search">
+        <button type="submit">Search</button>
+      </form>
       {% if user.is_authenticated %}
         <img src="{% static 'bloghome/user-50.png' %}" alt="" id="Usericon" onclick="opendrop()" height="39px" width="39px">
       {% else %}

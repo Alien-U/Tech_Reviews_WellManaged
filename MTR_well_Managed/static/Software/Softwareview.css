@@ -52,7 +52,7 @@
 
 /* Sidebar */
 .sidebar {
-    height: 90vh;
+    height: 83vh;
     width: 250px;
     background-color: #f5fcff;
     color: rgb(0, 0, 0);
@@ -60,7 +60,7 @@
     flex-direction: column;
     padding-top: 20px;
     padding-bottom: 20px;
-    top: 4%;
+    top: 11%;
     position: fixed;
     overflow: auto;
 }

@@ -99,11 +99,11 @@
 <br><br>
 <div class="Related_Cont">
     <h2>Related Articles...</h2>
-    {% for i in Gme_scroll %}
+    {% for i in gamescroll %}
             <div class="card"> 
                 <img src="/media/{{i.image}}" alt="Smartphone">
                 <h3>{{i.product_header |slice:"0:93"}}...</h3>
-                <a href="/Games/{{i.slug}}">Read Review</a>
+                <a href="/Gaming/{{i.slug}}">Read Review</a>
             </div>
             <br><br>
     {% endfor %}

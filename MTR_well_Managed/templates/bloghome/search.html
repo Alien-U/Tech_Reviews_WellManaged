@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}My tech reviews{% endblock  %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'bloghome/Search.css' %}">
+{% endblock %}
+{% block body %}
+    <main class="container">
+        <section id="search-info">
+            <h2>Search Results for:"<span id="search-query">{{query}}</span>"</h2>
+            <p id="results-count"></p>
+        </section>
+        {% if allElects|length < 1 and allGames|length < 1 and allSofts|length < 1 %}
+        <div class="NotFound">
+            <div class="message"><b>No Results !...</b></div>
+        </div>
+        {% endif %}
+        <section id="search-results-list">
+        {% for i in allElects %}
+            <div class="search-result-item">
+                <h3><a href="#">{{i.product_header}}</a></h3>
+                <p class="review-excerpt">{{i.desc|slice:"0:103"|safe}}...</p>
+                <p class="review-date">Published on:{{i.pub_date}}</p>
+            </div>
+        {% endfor %}
+        {% for i in allSofts %}
+            <div class="search-result-item">
+                <h3><a href="#">{{i.product_header}}</a></h3>
+                <p class="review-excerpt">{{i.desc|slice:"0:103"|safe}}...</p>
+                <p class="review-date">Published on:{{i.pub_date}}</p>
+            </div>
+        {% endfor %}
+        {% for i in allGames %}
+            <div class="search-result-item">
+                <h3><a href="#">{{i.product_header}}</a></h3>
+                <p class="review-excerpt">{{i.desc|slice:"0:103"|safe}}...</p>
+                <p class="review-date">Published on:{{i.pub_date}}</p>
+            </div>
+        {% endfor %}
+    </section>
+
+        <div id="no-results" style="display: none;">
+            <p>No results found for your search query.</p>
+        </div>
+    </main>
+    
+{%endblock%}

@@ -4,10 +4,13 @@
   color: rgb(255, 255, 255);
   font-weight: bold;
 }
+body {
+  margin-top: 10%; /* Example: 20px top margin for the entire body */
+}
 
       .about-section {
-          max-width: 800px;
-          margin: 0 auto;
+        max-width: 800px;
+        margin: 0 auto;
       }
 
 

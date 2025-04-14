@@ -190,7 +190,7 @@ header { /* Assuming you have a container for these elements */
     .messages {
       list-style-type: none;
       padding: 0;
-      margin-top:3.5%;
+      margin-top:7%;
     }
     
     .messages li {

@@ -1,0 +1,78 @@
+
+        body {
+            margin-top: 10%;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .NotFound {
+            text-align: center;
+            background: #ffffff;
+            padding:19% 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 234, 255, 0.1);
+        }
+        .message {
+            font-size: 28px;
+            color: rgba(85, 85, 85, 0.6);
+        }
+        main {
+            padding: 20px 0;
+        }
+        
+        #search-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        #search-info h2 {
+            margin-top: 0;
+        }
+        
+        #search-results-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .search-result-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .search-result-item h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        
+        .search-result-item h3 a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .search-result-item h3 a:hover {
+            text-decoration: underline;
+        }
+        
+        .search-result-item .review-excerpt {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .search-result-item .review-date {
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        #no-results {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
