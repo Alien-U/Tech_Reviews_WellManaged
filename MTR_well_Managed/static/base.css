@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 0;
     }
-    
-header {
+
+ header {
   background-color: rgb(4, 149, 222);
     color: rgb(255, 255, 255);
     position:fixed;
@@ -19,7 +19,7 @@ header {
     margin: 0;
     font-size: 1.5rem;
     margin-top: 0.5rem;
-}
+} 
 
 
 nav ul {
@@ -44,52 +44,15 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-#Usericon
-{ 
-  margin-left: auto; /* Push the element to the right */
+#searcUserCont{
+  margin-left: auto;
   margin-right:2vw;
-  margin-top: 0; /* Align to the top */
-  border: 2px solid rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
-  background-color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  display: block; 
-} 
-
- #btn {
-  position: fixed;
-  right:3%;
-  top:4px;
-  border: 2px solid rgb(255, 255, 255); /*Correct border syntax*/
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 170, 255);
-  padding: 0.5rem 1rem;
-  border-radius: 2px;
-  cursor: pointer;
-  } 
-
-  #btn:hover{
-  background-color: rgba(0, 247, 255, 0.767);
-  }
-
- #btn2{
-  position: fixed;
-  right:9%;
-  top:4px;
-  border: 2px solid rgb(255, 255, 255);/* Correct border syntax */
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 170, 255);
-  padding: 0.5rem 1rem;
-  border-radius: 3px;
-  cursor: pointer;
-  } 
-
-
-  #btn2:hover{
-  background-color: rgba(0, 247, 255, 0.767);
-  }
-
+  margin-top: 0; 
+  /* border: 2px solid rgb(255, 255, 255); */
+  display: block;
+  width: 25%;
+  text-align: right;
+}
 /* Hamburger Menu */
 .hamburger {
   display: none; /* Hidden by default on larger screens */
@@ -113,6 +76,7 @@ footer {
 /* Responsive Design */
 /* mediaquery */
 @media screen and (max-width: 768px) {
+
   nav ul {
       display: none; /* Hide the full menu on smaller screens */
       flex-direction: column;
@@ -254,3 +218,65 @@ header { /* Assuming you have a container for these elements */
 }
 /* ended */
 /* media quereis */
+  .searchForm {
+    border: 2px solid rgba(0, 0, 56, 0.8); 
+    display: flex; 
+    position: fixed; 
+    top:6vh; 
+    right: 0; 
+    margin: 10px; 
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px; 
+    border-radius: 5px;
+    visibility: hidden;
+  }
+  .opensearchForm
+    {
+    visibility: visible;
+    }
+  #search {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px;
+    flex-grow: 1; 
+    font-size: 1rem;
+  }
+  
+  #search:focus {
+    outline: none; 
+    border-color: #007bff; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  button{
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 3px 3px 0; 
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional: Adjust for smaller screens */
+  @media (max-width: 600px) {
+    #searchForm {
+      top:5vh;
+      flex-direction: column; 
+      width: 87%; 
+    }
+  
+    #search {
+      border-radius: 3px; 
+      margin-bottom: 5px;
+    }
+  
+    button{
+      border-radius: 3px;
+    }
+  }

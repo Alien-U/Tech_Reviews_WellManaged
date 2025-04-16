@@ -28,18 +28,18 @@ section h2{
           
 }
 ul form button{
-  padding: 10px 20px; /* Add padding inside the button */
-  background-color: #007bff; /* Example button background color */
-  color: white; /* Example button text color */
-  border: none; /* Remove default button border */
-  border-radius: 5px; /* Add rounded corners */
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-  font-size: 16px; /* Adjust font size */
-  margin:1vw; /* Center the button */
+  padding: 10px 20px; 
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  margin:1vw; 
 }
 
 ul form button:hover {
-  background-color: #0056b3; /* Darken the background on hover */
+  background-color: #0056b3;
 }
 /* Featured gadgets styles */
 .featured-gadgets {

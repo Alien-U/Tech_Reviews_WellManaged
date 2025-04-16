@@ -10,6 +10,12 @@ def software(request):
     params={'allSoftware':allSoftware}
     return render(request,'Software/Software.html',params)
 
+def CtegorySort(request):
+    category=request.GET['category']
+    allSoft=Software.objects.filter(subcategory__icontains=category)
+    params={'allSoft':allSoft,'category':category}
+    return render(request,'Software/SoftSort.html',params)
+
 
 def Softwarepost(request,slug):
     Elect_Scroll=Electronics.objects.all()

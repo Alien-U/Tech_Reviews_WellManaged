@@ -9,6 +9,11 @@
     <br><br>
     <h2>Browse by Category</h2>
     <ul>
+        <form action="/Gaming/" method="post">
+            {% csrf_token %}
+            <input type="hidden" >
+            <button type="submit">All</button>
+        </form>
         <form action="CtegorySort" method="get">
             {% csrf_token %}
             <input type="hidden" name="category"id="category" value="Mobile">
@@ -46,7 +51,7 @@
     <h2>Featured Gadgets</h2>
     <div class="gadget-cards">
       <div class="card-flexbox"> 
-      {% for i in allGaming %}
+      {% for i in allGames %}
         <div class="card"> 
             <img src="/media/{{i.image}}" alt="Smartphone">
             <h3>{{i.product_header}}</h3>

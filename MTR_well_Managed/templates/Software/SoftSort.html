@@ -1,44 +1,43 @@
 {% extends "base.html" %}
-{% block title %}Title of gaming{% endblock %}
+{% block title %}Title of Softwares{% endblock %}
 {% block head_extra %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'Gaming/Gaming.css' %}">
+    <link rel="stylesheet" href="{% static 'Software/Software.css' %}">
 {% endblock %}
 {% block body %}
 <section class="gadget-categories">
     <br><br>
     <h2>Browse by Category</h2>
     <ul>
-        <form action="CtegorySort" method="get">
+        <form action="/Software/" method="post">
             {% csrf_token %}
-            <input type="hidden" name="category"id="category" value="Mobile">
-            <button type="submit">Mobile</button>
-        </form>
-        
-        <form action="CtegorySort" method="get">
-            {% csrf_token %}
-            <input type="hidden" name="category"id="category" value="Xbox">
-            <button type="submit">Xbox</button>
+            <input type="hidden" >
+            <button type="submit">All</button>
         </form>
         <form action="CtegorySort" method="get">
             {% csrf_token %}
-            <input type="hidden" name="category"id="category" value="Windows">
-            <button type="submit">Windows</button>
+            <input type="hidden" name="category"id="category" value="App">
+            <button type="submit">App</button>
         </form>
         <form action="CtegorySort" method="get">
             {% csrf_token %}
-            <input type="hidden" name="category"id="category" value="Mac">
-            <button type="submit">Mac</button>
+            <input type="hidden" name="category"id="category" value="Websites">
+            <button type="submit">Websites</button>
         </form>
         <form action="CtegorySort" method="get">
             {% csrf_token %}
-            <input type="hidden" name="category"id="category" value="Consoles">
-            <button type="submit">Consoles</button>
+            <input type="hidden" name="category"id="category" value="AI">
+            <button type="submit">AI</button>
         </form>
         <form action="CtegorySort" method="get">
             {% csrf_token %}
-            <input type="hidden" name="category"id="category" value="VR">
-            <button type="submit">VR</button>
+            <input type="hidden" name="category"id="category" value="System">
+            <button type="submit">System</button>
+        </form>
+        <form action="CtegorySort" method="get">
+            {% csrf_token %}
+            <input type="hidden" name="category"id="category" value="Antivirus">
+            <button type="submit">Antivirus</button>
         </form>
     </ul>
 </section>
@@ -46,7 +45,7 @@
     <h2>Featured Gadgets</h2>
     <div class="gadget-cards">
       <div class="card-flexbox"> 
-      {% for i in allGaming %}
+      {% for i in  allSoft %}
         <div class="card"> 
             <img src="/media/{{i.image}}" alt="Smartphone">
             <h3>{{i.product_header}}</h3>

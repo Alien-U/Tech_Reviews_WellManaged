@@ -16,15 +16,15 @@
         <div class="bar"></div>
     </div>
       <p id="brandLogo"><i>Tech Reviews India</i></p>
-      <form action="/search"method="get">
-        <input type="search"name="query" placeholder="Search" id="search">
-        <button type="submit">Search</button>
-      </form>
+      <div id="searcUserCont">
+
+        <img src="{% static 'bloghome/Search.png' %}" alt="" id="Searchicon"onclick="openSearch()" height="39px" width="39px">
       {% if user.is_authenticated %}
         <img src="{% static 'bloghome/user-50.png' %}" alt="" id="Usericon" onclick="opendrop()" height="39px" width="39px">
       {% else %}
         <a href="/loginSignup"><img src="{% static 'bloghome/Createaccount.png' %}" alt=""  id="Usericon" height="39px" width="39px"></a>
       {% endif %}
+      </div>
       <nav>
           <ul id="navbar-ul">
               <li><a href="/" class="H">Home</a></li>
@@ -35,6 +35,10 @@
               <li><a href="/contact" class="C">Contact</a></li>
           </ul>
       </nav>
+      <form action="/search"method="get"id="searchForm"class="searchForm">
+        <input type="search"name="query" placeholder="Search" id="search">
+        <button type="submit">Search</button>
+      </form>
   </header>
 
     {% comment %} ------------dropdowndiv------------------- {% endcomment %}
@@ -71,11 +75,6 @@ function toggleMenu() {
 }
 
 // Example functions for buttons (replace with your actual logic)
-
-function opendrop() {
-  alert('User icon clicked');
-}
-  {% comment %} responsive header ended {% endcomment %}
   {% comment %} ----------------*forDropdown*--------------- {% endcomment %}
   let drop = document.getElementById("DropContainer");
   function opendrop()
@@ -86,5 +85,13 @@ function opendrop() {
   {
     drop.classList.remove("openDropContainer");
   }
+
+{% comment %} js for Search form {% endcomment %}
+
+let Visible = document.getElementById("searchForm");
+  function openSearch()
+  {
+    Visible.classList.toggle("opensearchForm");
+  } 
 </script>
 </html>

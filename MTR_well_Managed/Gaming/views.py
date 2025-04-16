@@ -10,6 +10,13 @@ def gaming(request):
     params={'allGaming':allGaming}
     return render(request,'Gaming/Gaming.html',params)
 
+def CtegorySort(request):
+    category=request.GET['category']
+    allGames=Gaming.objects.filter(subcategory__icontains=category)
+    params={'allGames':allGames,'category':category}
+    return render(request,'Gaming/GameSort.html',params)
+
+
 
 def Gamingpost(request,slug):
     Elect_Scroll=Electronics.objects.all()

@@ -5,47 +5,45 @@
   }
 
 /* Gadget categories styles */
+
 .gadget-categories {
-padding: 2rem 0;
-margin-top: 12vh;
+  padding: 2rem 0;
+  margin-top: 12vh;
 }
 
 .gadget-categories ul {
-list-style: none;
-padding: 0;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-.gadget-categories li {
-margin: 10px;
-}
-
-.gadget-categories a {
-text-decoration: none;
-color: #333;
-padding: 5px 10px;
-border: 1px solid #ccc;
-border-radius: 3px;
-}
-.gadget-categories a:hover {
-  color:#fff;
-  background-color: rgba(0, 147, 37, 0.555);
-}
-section h2
-{
+section h2{
   text-align: center;
-    /* border: solid rgb(0, 166, 255); */
-    width: 30%;
-    margin: 0 auto; /* Center the h2 */
-    margin-bottom: 3%;
-    background-color:#002a54 ;
-    color: #fff;
-    margin-top:10px;
-    border-radius: 5px;
-
+  width: 30%;
+  margin: 0 auto; 
+  margin-bottom: 3%;
+  background-color:#002a54 ;
+  color: #fff;
+  margin-top:10px;
+  border-radius: 5px;
+          
 }
+ul form button{
+  padding: 10px 20px; 
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  margin:1vw; 
+}
+
+ul form button:hover {
+  background-color: #0056b3;
+}
+
 /* Featured gadgets styles */
 .featured-gadgets {
 padding: 1rem 0;

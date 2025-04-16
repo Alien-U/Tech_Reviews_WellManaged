@@ -9,11 +9,31 @@
     <br><br>
     <h2>Browse by Category</h2>
     <ul>
-        <li><a href="#">App</a></li>
-        <li><a href="#">Websites</a></li>
-        <li><a href="#">AI</a></li>
-        <li><a href="#">System</a></li>
-        <li><a href="#">Antivirus</a></li>
+        <form action="CtegorySort" method="get">
+            {% csrf_token %}
+            <input type="hidden" name="category"id="category" value="App">
+            <button type="submit">App</button>
+        </form>
+        <form action="CtegorySort" method="get">
+            {% csrf_token %}
+            <input type="hidden" name="category"id="category" value="Websites">
+            <button type="submit">Websites</button>
+        </form>
+        <form action="CtegorySort" method="get">
+            {% csrf_token %}
+            <input type="hidden" name="category"id="category" value="AI">
+            <button type="submit">AI</button>
+        </form>
+        <form action="CtegorySort" method="get">
+            {% csrf_token %}
+            <input type="hidden" name="category"id="category" value="System">
+            <button type="submit">System</button>
+        </form>
+        <form action="CtegorySort" method="get">
+            {% csrf_token %}
+            <input type="hidden" name="category"id="category" value="Antivirus">
+            <button type="submit">Antivirus</button>
+        </form>
     </ul>
 </section>
 <section class="featured-gadgets">
@@ -25,7 +45,7 @@
             <img src="/media/{{i.image}}" alt="Smartphone">
             <h3>{{i.product_header}}</h3>
             <p>{{i.desc|slice:"0:103"|safe}}...</p>
-            <a href="{{i.slug}}}">Read Review</a>
+            <a href="{{i.slug}}">Read Review</a>
         </div>
         {% endfor %}
       </div>
