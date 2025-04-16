@@ -10,6 +10,12 @@ def electronics(request):
     params={'allElectronic':allElectronic}
     return render(request,'Electronics/Electronics.html',params)
 
+def CtegorySort(request):
+    category=request.GET['category']
+    allElects=Electronics.objects.filter(subcategory__icontains=category)
+    params={'allElects':allElects,'category':category}
+    return render(request,'Electronics/ElectSort.html',params)
+
 def Electronicpost(request,slug):
     Elect_Scroll=Electronics.objects.all()
     Soft_scroll=Software.objects.all()

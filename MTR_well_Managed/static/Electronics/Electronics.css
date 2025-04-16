@@ -16,34 +16,30 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.gadget-categories li {
-  margin: 10px;
-}
-
-.gadget-categories a {
-  text-decoration: none;
-  color: #333;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-.gadget-categories a:hover {
-  color:#fff;
-  background-color: rgba(0, 147, 37, 0.555);
-}
-section h2
-{
+section h2{
   text-align: center;
-    /* border: solid rgb(0, 166, 255); */
-    width: 30%;
-    margin: 0 auto; /* Center the h2 */
-    margin-bottom: 3%;
-    background-color:#002a54 ;
-    color: #fff;
-    margin-top:10px;
-    border-radius: 5px;
+  width: 30%;
+  margin: 0 auto; /* Center the h2 */
+  margin-bottom: 3%;
+  background-color:#002a54 ;
+  color: #fff;
+  margin-top:10px;
+  border-radius: 5px;
+          
+}
+ul form button{
+  padding: 10px 20px; /* Add padding inside the button */
+  background-color: #007bff; /* Example button background color */
+  color: white; /* Example button text color */
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  font-size: 16px; /* Adjust font size */
+  margin:1vw; /* Center the button */
+}
 
+ul form button:hover {
+  background-color: #0056b3; /* Darken the background on hover */
 }
 /* Featured gadgets styles */
 .featured-gadgets {

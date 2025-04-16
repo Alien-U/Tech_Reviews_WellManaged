@@ -9,13 +9,42 @@
         <br><br>
         <h2>Browse by Category</h2>
         <ul>
-            <li><a href="#">Phones</a></li>
-            <li><a href="#">Laptops</a></li>
-            <li><a href="#">Tablets</a></li>
-            <li><a href="#">Wearables</a></li>
-            <li><a href="#">Cameras</a></li>
-            <li><a href="#">Audio</a></li>
-            <li><a href="#">Home Appliances</a></li>
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Phones">
+              <button type="submit">Phones</button>
+          </form>
+          
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Laptops">
+              <button type="submit">Laptops</button>
+          </form>
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Tablets">
+              <button type="submit">Tablets</button>
+          </form>
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Wearables">
+              <button type="submit">Wearables</button>
+          </form>
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Cameras">
+              <button type="submit">Cameras</button>
+          </form>
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Audio">
+              <button type="submit">Audio</button>
+          </form>
+          <form action="CtegorySort" method="get">
+              {% csrf_token %}
+              <input type="hidden" name="category"id="category" value="Home Appliances">
+              <button type="submit">Home Appliances</button>
+          </form>
         </ul>
     </section>
     <section class="featured-gadgets">
