@@ -54,7 +54,7 @@
           {% for i in allElectronic %}
             <div class="card"> 
                 <img src="/media/{{i.image}}" alt="Smartphone">
-                <h3>{{i.product_header |slice:"0:23"}}...</h3>
+                <h3>{{i.product_header}}</h3>
                 <p>{{i.desc|slice:"0:103"|safe}}...</p>
                 <a href="{{i.slug}}">Read Review</a>
             </div>

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 from tinymce.models import HTMLField
+from django.utils.text import slugify
 
 # Create your models here.
 class Electronics(models.Model):
@@ -11,12 +12,23 @@ class Electronics(models.Model):
     subcategory=models.CharField(max_length=50,default="")
     desc=HTMLField()
     author = models.CharField(max_length=13,default="")
-    slug=models.CharField(max_length=100)
+    slug=models.CharField(max_length=100, unique=True, blank=True)
     pub_date = models.DateField()
     image=models.ImageField(upload_to="Electronics/images",default="")
 
     def __str__(self):
         return self.product_header+' by '+self.author
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.product_header)
+            # Ensure uniqueness even with similar headers
+            base_slug = self.slug
+            counter = 1
+            while Electronics.objects.filter(slug=self.slug).exists():
+                self.slug = f"{base_slug}-{counter}"
+                counter += 1
+        super().save(*args, **kwargs)
 
 class ElectronicComment(models.Model):
     Ele_id_sno=models.AutoField(primary_key=True)

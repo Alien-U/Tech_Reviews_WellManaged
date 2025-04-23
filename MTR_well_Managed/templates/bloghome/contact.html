@@ -8,7 +8,7 @@
 {% if user.is_authenticated %}
 <h4>We'd love to hear from you! Please fill out the form below.</h4>
 
-<form action="/contact/" method="POST"> 
+<form id="Contact_form"action="/contact/" method="POST"> 
     {% csrf_token %}
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
@@ -22,7 +22,7 @@
     <label for="message">Message:</label>
     <textarea id="message" name="message" rows="5" required></textarea>
 
-    <button type="submit">Submit</button>
+    <button id="Contact_Button" type="submit">Submit</button>
     <br><br><br>
 </form> 
 {% else %}

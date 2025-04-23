@@ -43,7 +43,13 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
-
+#Searchicon{
+  margin-right: 15px;
+  cursor: pointer;
+}
+#Usericon{
+  cursor: pointer;
+}
 #searcUserCont{
   margin-left: auto;
   margin-right:2vw;
@@ -203,18 +209,18 @@ header { /* Assuming you have a container for these elements */
       height: auto; /* Height of the scrollbar for horizontal scrolling */
     }
     ::-webkit-scrollbar-track {
-      background: #b9b9b99b; /* Light gray track color */
+      background: #dddddd9b; /* Light gray track color */
       border-radius: 10px; /* Rounded corners */
     }
     /* Thumb of the scrollbar (draggable part) */
 ::-webkit-scrollbar-thumb {
-  background: #79c5c7; /* Darker gray for thumb */
+  background: #b8b8b8;/* Darker gray for thumb*/
   border-radius: 10px; /* Rounded corners for thumb */
 }
 
 /* Hover effect for the thumb */
 ::-webkit-scrollbar-thumb:hover {
-  background: #67e4e8; /* Even darker gray when hovering */
+  background: #939393;/* Even darker gray when hovering*/
 }
 /* ended */
 /* media quereis */
@@ -249,7 +255,7 @@ header { /* Assuming you have a container for these elements */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
   
-  button{
+  #Search_Btn{
     padding: 0.5rem 1rem;
     background-color: #007bff;
     color: white;
@@ -258,11 +264,9 @@ header { /* Assuming you have a container for these elements */
     cursor: pointer;
     font-size: 1rem;
   }
-  
-  button:hover {
+  #Search_Btn:hover {
     background-color: #0056b3;
   }
-  
   /* Optional: Adjust for smaller screens */
   @media (max-width: 600px) {
     #searchForm {
@@ -276,7 +280,7 @@ header { /* Assuming you have a container for these elements */
       margin-bottom: 5px;
     }
   
-    button{
+    #Search_Btn{
       border-radius: 3px;
     }
   }
