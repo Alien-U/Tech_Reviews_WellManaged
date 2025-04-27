@@ -7,6 +7,7 @@ from django.utils.text import slugify
 # Create your models here.
 class Gaming(models.Model):
     Gme_id_sno = models.AutoField(primary_key=True)
+    post_type=models.CharField(max_length=25,default="")
     product_header = models.CharField(max_length=100,default="")
     product_name = models.CharField(max_length=30,default="")
     subcategory=models.CharField(max_length=50,default="")

@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from Gaming.models import Gaming  
+from Gaming.models import Gaming 
+from Electronics.models import Electronics 
+from Software.models import Software
 from django.utils.text import slugify  
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
@@ -18,10 +20,37 @@ def Start_Your_Post(request):
         author = request.POST.get('author')
         slug = request.POST.get('slug')
         pub_date = request.POST.get('pub_date')
-        image = request.POST.get('image')
-
+        image = request.FILES.get('image')
+        post_type = request.POST.get('post_type')
         # Create a new instance of your model
-        new_post = Gaming(
+
+        if post_type == "Electronics":
+            # Create a new instance of the Electronics model
+            new_post = Electronics(
+                product_header=product_header,
+                product_name=product_name,
+                subcategory=subcategory,
+                desc=desc,
+                author=author,
+                slug=slug,
+                pub_date=pub_date,
+                image=image,
+            )
+        elif post_type == "Softwares":
+            # Create a new instance of the Electronics model
+            new_post = Software(
+                product_header=product_header,
+                product_name=product_name,
+                subcategory=subcategory,
+                desc=desc,
+                author=author,
+                slug=slug,
+                pub_date=pub_date,
+                image=image,
+            )
+        elif post_type == "Gaming":
+
+            new_post = Gaming(
             product_header=product_header,
             product_name=product_name,
             subcategory=subcategory,
