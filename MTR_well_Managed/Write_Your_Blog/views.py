@@ -14,12 +14,9 @@ from django.contrib import messages
 def Start_Your_Post(request):
     if request.method == "POST":
         product_header = request.POST.get('product_header')
-        product_name = request.POST.get('product_name')
         subcategory = request.POST.get('subcategory')
         desc = request.POST.get('desc')
         author = request.POST.get('author')
-        slug = request.POST.get('slug')
-        pub_date = request.POST.get('pub_date')
         image = request.FILES.get('image')
         post_type = request.POST.get('post_type')
         # Create a new instance of your model
@@ -28,36 +25,27 @@ def Start_Your_Post(request):
             # Create a new instance of the Electronics model
             new_post = Electronics(
                 product_header=product_header,
-                product_name=product_name,
                 subcategory=subcategory,
                 desc=desc,
                 author=author,
-                slug=slug,
-                pub_date=pub_date,
                 image=image,
             )
         elif post_type == "Softwares":
             # Create a new instance of the Electronics model
             new_post = Software(
                 product_header=product_header,
-                product_name=product_name,
                 subcategory=subcategory,
                 desc=desc,
                 author=author,
-                slug=slug,
-                pub_date=pub_date,
                 image=image,
             )
         elif post_type == "Gaming":
 
             new_post = Gaming(
             product_header=product_header,
-            product_name=product_name,
             subcategory=subcategory,
             desc=desc,
             author=author,
-            slug=slug,
-            pub_date=pub_date,
             image=image,
         )
         # Save the new model instance to the database

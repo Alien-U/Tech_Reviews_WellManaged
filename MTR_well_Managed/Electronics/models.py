@@ -9,12 +9,12 @@ class Electronics(models.Model):
     Ele_id_sno = models.AutoField(primary_key=True)
     post_type=models.CharField(max_length=25,default="")
     product_header = models.CharField(max_length=100,default="")
-    product_name = models.CharField(max_length=30,default="")
+    # product_name = models.CharField(max_length=30,default="")
     subcategory=models.CharField(max_length=50,default="")
     desc=HTMLField()
     author = models.CharField(max_length=13,default="")
     slug=models.CharField(max_length=100, unique=True, blank=True)
-    pub_date = models.DateField()
+    pub_date = models.DateTimeField(default=now)
     image=models.ImageField(upload_to="Electronics/images",default="")
 
     def __str__(self):

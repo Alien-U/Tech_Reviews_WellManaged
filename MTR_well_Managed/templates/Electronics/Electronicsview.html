@@ -12,15 +12,15 @@
 <div class="sidebar">
     <p>Electronic Gadgets</p>
     {% for i in Elect_Scroll %}
-        <a href="/Electronics/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+        <a href="/Electronics/{{i.slug}}">{{i.product_header |slice:"0:23"}}</a>
     {% endfor %}
     <p>Softwares</p>
     {% for i in Soft_scroll %}
-        <a href="/Software/{{i.slug}}">{{i.product_name |slice:"0:23"}}</a>
+        <a href="/Software/{{i.slug}}">{{i.product_header |slice:"0:23"}}</a>
     {% endfor %}
     <p>Gaming</p>
     {% for i in gamescroll %}
-        <a href="/Gaming/{{i.slug}}">{{i.product_name  |slice:"0:23"}}</a>
+        <a href="/Gaming/{{i.slug}}">{{i.product_header |slice:"0:23"}}</a>
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
