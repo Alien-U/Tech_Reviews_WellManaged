@@ -8,9 +8,6 @@ from Software.models import Software
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
-# Create your views here.
-# def home(request):
-#     return render(request,'bloghome/index.html')
 
 def home(request):
     Elect_Scroll=Electronics.objects.all()
@@ -70,7 +67,8 @@ def handleLogout(request):
     logout(request)
     messages.success(request,"successfully logged out")
     return redirect('/')
-    # return HttpResponse("handleLogout")
+
+
 def search(request):
     query=request.GET['query']
     allElects=Electronics.objects.filter(product_header__icontains=query)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Electronics.apps.ElectronicsConfig',
     'Gaming.apps.GamingConfig',
     'Software.apps.SoftwareConfig',
+    'Write_Your_Blog.apps.WriteYourBlogConfig',
     'django.contrib.humanize',
     'tinymce',
 ]

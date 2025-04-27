@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Title of Write_a_blog{% endblock %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'Write_Your_Blog/Start_Your_Post.css' %}">
+{% endblock %}
+{% block body %}
+    <h1 id="Texts">Enter Gaming Product Details</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div>
+            <label for="product_Type">Type:</label>
+            <input type="text" id="product_Type" name="product_Type" maxlength="30" value="">
+        </div>
+        <br>
+
+        <div>
+            <label for="product_header">Product Header:</label>
+            <input type="text" id="product_header" name="product_header" maxlength="100" value="">
+        </div>
+        <br>
+
+        <div>
+            <label for="product_name">Product Name:</label>
+            <input type="text" id="product_name" name="product_name" maxlength="30" value="">
+        </div>
+        <br>
+
+        <div>
+            <label for="subcategory">Subcategory:</label>
+            <input type="text" id="subcategory" name="subcategory" maxlength="50" value="">
+        </div>
+        <br>
+
+        <div>
+            <label for="desc">Description:</label>
+            <textarea id="desc" name="desc"></textarea>
+            <p>Note: This field likely expects HTML content.</p>
+        </div>
+        <br>
+
+        <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" maxlength="13" value="">
+        </div>
+        <br>
+
+        <div>
+            <label for="slug">Slug:</label>
+            <input type="text" id="slug" name="slug" maxlength="100" value="">
+            <p>Note: This field is likely for URL generation and might be automatically filled.</p>
+        </div>
+        <br>
+
+        <div>
+            <label for="pub_date">Publication Date:</label>
+            <input type="date" id="pub_date" name="pub_date">
+        </div>
+        <br>
+
+        <div>
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image">
+        </div>
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+{% endblock  %}

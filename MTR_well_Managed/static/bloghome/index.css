@@ -70,24 +70,7 @@
     height: auto;
     margin-bottom: 1rem;
   }
-  /* Latest news styles */
-  .latest-news {
-    padding: 4rem 0;
-    border:solid red;
-  }
   
-  .news-feed {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border:solid rgb(0, 80, 7);
-  }
-  
-  article {
-    width: 300px;
-    margin-bottom: 2rem;
-    border:solid red;
-  }
   /* Responsiveness */
   /* General Reset */
   
@@ -117,18 +100,7 @@
       width: 90%; /* Adjust card width */
     }
   
-    .latest-news {
-      padding: 2rem 0;
-    }
   
-    .news-feed {
-      flex-direction: column; /* Stack articles vertically */
-      align-items: center;
-    }
-  
-    article {
-      width: 90%; /* Adjust article width */
-    }
   }
   
   /* For mobile screens */
