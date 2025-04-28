@@ -9,16 +9,15 @@ class Gaming(models.Model):
     Gme_id_sno = models.AutoField(primary_key=True)
     post_type=models.CharField(max_length=25,default="")
     product_header = models.CharField(max_length=100,default="")
-    # product_name = models.CharField(max_length=30,default="")
     subcategory=models.CharField(max_length=50,default="")
     desc=HTMLField()
-    author = models.CharField(max_length=13,default="")
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
     slug=models.CharField(max_length=100, unique=True, blank=True)
     pub_date = models.DateTimeField(default=now)
     image=models.ImageField(upload_to="Gaming/images",default="")
 
     def __str__(self):
-        return self.product_header+' by '+self.author
+        return f"{self.product_header} by {self.author.username}"
 
     def save(self, *args, **kwargs):
         if not self.slug:

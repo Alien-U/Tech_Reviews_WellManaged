@@ -6,17 +6,13 @@ from django.utils.text import slugify
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.contrib import messages
-# Create your views here.
-# def Start_Your_Post(request):
-#     return render(request, 'Write_Your_Blog/Start_Your_Post.html')
-
 
 def Start_Your_Post(request):
     if request.method == "POST":
         product_header = request.POST.get('product_header')
         subcategory = request.POST.get('subcategory')
         desc = request.POST.get('desc')
-        author = request.POST.get('author')
+        # author = request.POST.get('author')
         image = request.FILES.get('image')
         post_type = request.POST.get('post_type')
         # Create a new instance of your model
@@ -27,7 +23,7 @@ def Start_Your_Post(request):
                 product_header=product_header,
                 subcategory=subcategory,
                 desc=desc,
-                author=author,
+                author=request.user,
                 image=image,
             )
         elif post_type == "Softwares":
@@ -36,7 +32,7 @@ def Start_Your_Post(request):
                 product_header=product_header,
                 subcategory=subcategory,
                 desc=desc,
-                author=author,
+                author=request.user,
                 image=image,
             )
         elif post_type == "Gaming":
@@ -45,7 +41,7 @@ def Start_Your_Post(request):
             product_header=product_header,
             subcategory=subcategory,
             desc=desc,
-            author=author,
+            author=request.user,
             image=image,
         )
         # Save the new model instance to the database
