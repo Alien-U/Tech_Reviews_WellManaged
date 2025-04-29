@@ -22,7 +22,7 @@
       {% if user.is_authenticated %}
         <img src="{% static 'bloghome/user-50.png' %}" alt="" id="Usericon" onclick="opendrop()" height="39px" width="39px">
       {% else %}
-        <a href="/loginSignup"><img src="{% static 'bloghome/Createaccount.png' %}" alt=""  id="Usericon" height="39px" width="39px"></a>
+        <a href="/UsersAccount"><img src="{% static 'bloghome/Createaccount.png' %}" alt=""  id="Usericon" height="39px" width="39px"></a>
       {% endif %}
       </div>
       <nav>
@@ -47,7 +47,7 @@
       <div class="Drop"id="Drop">
         <img src="close.png" height="15px"width="15px"id="close"onclick="closedrop()">
           <br><br><br>
-            <li class="list"><a href="/logout"class="link">Logout</a></li>
+            <li class="list"><a href="UsersAccount/logout"class="link">Logout</a></li>
       </div>
     </div>
     {% comment %} --------------end-------------------- {% endcomment %}

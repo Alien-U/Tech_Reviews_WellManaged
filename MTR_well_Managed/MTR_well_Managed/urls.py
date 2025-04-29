@@ -25,4 +25,5 @@ urlpatterns = [
     path('Gaming/', include('Gaming.urls')),
     path('Software/', include('Software.urls')),
     path('Write_Your_Blog/', include('Write_Your_Blog.urls')),
+    path('UsersAccount/', include('UsersAccount.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

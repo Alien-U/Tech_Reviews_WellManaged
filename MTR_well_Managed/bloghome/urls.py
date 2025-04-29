@@ -6,8 +6,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('search/', views.search,name="search"),
-    path("loginSignup/", views.AccountPage, name="AccountPage"),
-    path('signup', views.handleSignup,name="handleSignup"),
-    path('login', views.handleLogin,name="handleLogin"),
-    path('logout/', views.handleLogout,name="handleLogout"),
+    # path("loginSignup/", views.AccountPage, name="AccountPage"),
+    # path('signup', views.handleSignup,name="handleSignup"),
+    # path('login', views.handleLogin,name="handleLogin"),
+    # path('logout/', views.handleLogout,name="handleLogout"),
 ]
