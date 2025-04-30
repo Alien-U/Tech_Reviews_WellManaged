@@ -2,9 +2,11 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from.models import Profile
 # Create your views here.
 def AccountPage(request):
     return render(request,'UsersAccount/LoginSignup.html')
+
 def handleSignup(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -42,3 +44,12 @@ def handleLogout(request):
     logout(request)
     messages.success(request,"successfully logged out")
     return redirect('/')
+
+def ProfilePage(request):
+        try:
+            user_profile = request.user.profile  # Access the related Profile object
+            return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile})
+        except Profile.DoesNotExist:
+            # Handle the case where a Profile object doesn't exist for the user
+            # You might want to create one here or display a message
+            return render(request, 'UsersAccount/UserProfile.html', {'message': 'No profile found for this user.'})

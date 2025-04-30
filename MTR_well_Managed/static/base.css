@@ -49,6 +49,7 @@ cursor: pointer;
 }
 #Usericon{
 cursor: pointer;
+border-radius: 50%;
 }
 #searcUserCont{
 margin-left: auto;

@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block title %}Title of UserProfile{% endblock %}
+{% block head_extra %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'UsersAccount/UserProfile.css' %}">
+{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img src="/media/{{profile.Image}}" alt="">
+            </div>
+            <div class="profile-info">
+                <h2>{{user.username}},{{profile.user_Profile.username }}</h2>
+                <p>{{user.email}}</p>
+                <p>Software Engineer</p>
+            </div>
+            <li class="list"><a href="/UsersAccount/logout"class="link">Logout</a></li>
+        </div>
+        <div class="profile-stats">
+            <div>
+                <strong>125</strong>
+                <span>Followers</span>
+            </div>
+            <div>
+                <strong>50</strong>
+                <span>Following</span>
+            </div>
+            <div>
+                <strong>230</strong>
+                <span>Contributions</span>
+            </div>
+        </div>
+        <p class="profile-bio">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <button id="edit-profile-btn">Edit Profile</button>
+
+        <div class="edit-form" style="display: none;">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="john.doe@example.com" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" value="San Francisco, CA">
+                </div>
+                 <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" value="https://example.com">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="save">Save</button>
+                    <button type="button" class="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-container">
+            <div class="tab-links">
+                <button class="tab-link active" data-tab="projects">Projects</button>
+                <button class="tab-link" data-tab="activity">Activity</button>
+            </div>
+            <div id="projects" class="tab-content active">
+                <ul class="projects-list">
+                    <li><strong>Project A:</strong> A cool web application.</li>
+                    <li><strong>Project B:</strong> An open-source library.</li>
+                </ul>
+            </div>
+            <div id="activity" class="tab-content">
+                <p>Activity feed would go here (e.g., recent commits, posts, etc.).</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const editProfileBtn = document.getElementById('edit-profile-btn');
+        const editForm = document.querySelector('.edit-form');
+        const cancelBtn = document.querySelector('.form-actions .cancel');
+        const saveBtn = document.querySelector('.form-actions .save');
+        const profileInfo = document.querySelector('.profile-info');
+        const profileBio = document.querySelector('.profile-bio');
+        const profileStats = document.querySelector('.profile-stats');
+
+        let isEditing = false;
+        let originalData = {};
+
+        function showTab(tabName) {
+            tabLinks.forEach(link => link.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                showTab(link.dataset.tab);
+            });
+        });
+
+        showTab('projects');
+
+        editProfileBtn.addEventListener('click', () => {
+            if (!isEditing) {
+                isEditing = true;
+                originalData = {
+                    name: profileInfo.querySelector('h2').textContent,
+                    email: profileInfo.querySelector('p').textContent,
+                    bio: profileBio.textContent,
+                };
+                editForm.style.display = 'block';
+                editProfileBtn.textContent = 'Cancel';
+                //hide other elements
+                profileInfo.style.display = 'none';
+                profileStats.style.display = 'none';
+
+            } else {
+                isEditing = false;
+                editForm.style.display = 'none';
+                editProfileBtn.textContent = 'Edit Profile';
+                 profileInfo.style.display = 'block';
+                 profileStats.style.display = 'flex';
+                 //reset form
+                document.getElementById('name').value = originalData.name;
+                document.getElementById('email').value = originalData.email;
+                document.getElementById('bio').value = originalData.bio;
+            }
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            isEditing = false;
+            editForm.style.display = 'none';
+            editProfileBtn.textContent = 'Edit Profile';
+            profileInfo.style.display = 'block';
+            profileStats.style.display = 'flex';
+        });
+
+        saveBtn.addEventListener('click', () => {
+            const newName = document.getElementById('name').value;
+            const newBio = document.getElementById('bio').value;
+             const newLocation = document.getElementById('location').value;
+              const newWebsite = document.getElementById('website').value;
+
+            profileInfo.querySelector('h2').textContent = newName;
+            profileInfo.querySelector('p').textContent = document.getElementById('email').value;
+            profileBio.textContent = newBio;
+
+            //update original data
+            originalData.name = newName;
+            originalData.bio = newBio;
+
+            isEditing = false;
+            editForm.style.display = 'none';
+            editProfileBtn.textContent = 'Edit Profile';
+            profileInfo.style.display = 'block';
+            profileStats.style.display = 'flex';
+        });
+    </script>
+{% endblock %}

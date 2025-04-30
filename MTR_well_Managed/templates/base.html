@@ -20,7 +20,7 @@
 
         <img src="{% static 'bloghome/Search.png' %}" alt="" id="Searchicon"onclick="openSearch()" height="30px" width="30px">
       {% if user.is_authenticated %}
-        <img src="{% static 'bloghome/user-50.png' %}" alt="" id="Usericon" onclick="opendrop()" height="39px" width="39px">
+        <a href="/UsersAccount/Profile"><img src="/media/{{profile.Image}}" alt="" id="Usericon" height="39px" width="39px"></a>
       {% else %}
         <a href="/UsersAccount"><img src="{% static 'bloghome/Createaccount.png' %}" alt=""  id="Usericon" height="39px" width="39px"></a>
       {% endif %}
@@ -41,16 +41,6 @@
         <button id="Search_Btn"type="submit">Search</button>
       </form>
   </header>
-
-    {% comment %} ------------dropdowndiv------------------- {% endcomment %}
-    <div class="DropContainer"id="DropContainer">
-      <div class="Drop"id="Drop">
-        <img src="close.png" height="15px"width="15px"id="close"onclick="closedrop()">
-          <br><br><br>
-            <li class="list"><a href="UsersAccount/logout"class="link">Logout</a></li>
-      </div>
-    </div>
-    {% comment %} --------------end-------------------- {% endcomment %}
   {% load static %}
     {% if messages %}
         <ul class="messages">
@@ -74,19 +64,6 @@ function toggleMenu() {
   const navbarUl = document.getElementById('navbar-ul');
   navbarUl.classList.toggle('active');
 }
-
-// Example functions for buttons (replace with your actual logic)
-  {% comment %} ----------------*forDropdown*--------------- {% endcomment %}
-  let drop = document.getElementById("DropContainer");
-  function opendrop()
-  {
-    drop.classList.add("openDropContainer");
-  } 
-  function closedrop()
-  {
-    drop.classList.remove("openDropContainer");
-  }
-
 {% comment %} js for Search form {% endcomment %}
 
 let Visible = document.getElementById("searchForm");

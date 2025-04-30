@@ -1,0 +1,283 @@
+.container {
+    max-width: 800px; /* Increased max-width for larger screens */
+    width: 95%; /* Use a percentage for responsiveness */
+    background-color: #ffffff; /* White container */
+    padding: 30px; /* Increased padding for more space */
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2c3e50; /* Darker heading color */
+    text-align: center;
+    margin-bottom: 30px; /* Increased margin */
+    font-weight: 600; /* Make the heading a bit bolder */
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0; /* Lighter border */
+}
+
+.profile-avatar {
+    width: 100px; /* Increased size */
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 25px; /* Increased margin */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 2px solid #f0f0f0; /* Light border */
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    color: #2c3e50; /* Darker heading */
+    margin-bottom: 8px;
+    font-size: 24px; /* Increased font size */
+    font-weight: 600;
+}
+
+.profile-info p {
+    color: #777; /* Slightly darker text */
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.profile-stats div {
+    text-align: center;
+}
+
+.profile-stats div strong {
+    color: #3498db; /* Blue for emphasis */
+    display: block;
+    font-size: 20px; /* Increased font size */
+    font-weight: 600;
+}
+
+.profile-bio {
+    margin-bottom: 25px; /* Increased margin */
+    line-height: 1.7; /* Improved line height for readability */
+    color: #555; /* Slightly darker body text */
+    font-size: 16px;
+}
+
+.tab-container {
+    margin-top: 30px; /* Increased margin */
+}
+
+.tab-links {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-links button {
+    padding: 15px 25px; /* Increased padding */
+    border: none;
+    background-color: transparent;
+    color: #777;
+    font-size: 18px; /* Increased font size */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    outline: none;
+    border-bottom: 2px solid transparent; /* Added for active state */
+    font-weight: 500;
+}
+
+.tab-links button:hover {
+    color: #3498db; /* Blue on hover */
+}
+
+.tab-links button.active {
+    color: #2c3e50; /* Darker blue for active */
+    border-bottom-color: #3498db; /* Blue active indicator */
+    font-weight: 600; /* Make active tab bold */
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.projects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.projects-list li {
+    background-color: #f5f5f5; /* Very light background for list items */
+    padding: 20px; /* Increased padding */
+    margin-bottom: 15px; /* Increased margin */
+    border-radius: 8px; /* Slightly more rounded corners */
+    border: 1px solid #e0e0e0; /* Lighter border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    transition: background-color 0.2s ease; /* Smooth transition */
+    font-size: 16px;
+    line-height: 1.7
+}
+
+.projects-list li:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+}
+
+.projects-list li strong {
+    color: #34495e; /* Darker font for project name */
+    margin-right: 10px;
+    font-size: 18px; /* Increased font size */
+}
+
+#edit-profile-btn {
+    display: block;
+    margin-top: 30px; /* Increased margin */
+    padding: 12px 30px; /* Increased padding */
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    font-size: 18px; /* Increased font size */
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make button full width */
+    text-align: center;
+}
+
+#edit-profile-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.edit-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Increased margin */
+    color: #555; /* Darker label color */
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    outline: none;
+    background-color: #f9f9f9; /* Very light background for inputs */
+    color: #333;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #3498db; /* Blue focus border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on focus */
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px; /* Increased height */
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px; /* Increased margin */
+}
+
+.form-actions button {
+    padding: 12px 30px; /* Increased padding */
+    border: none;
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    font-size: 18px; /* Increased font size */
+    transition: background-color 0.3s ease;
+    flex: 1; /* Distribute space evenly */
+    text-align: center;
+}
+
+.form-actions button.save {
+    background-color: #3498db; /* Blue save button */
+    color: white;
+}
+
+.form-actions button.save:hover {
+    background-color: #2980b9;
+}
+
+.form-actions button.cancel {
+    background-color: #e0e0e0; /* Light gray cancel button */
+    color: #333;
+}
+
+.form-actions button.cancel:hover {
+    background-color: #d0d0d0; /* Slightly darker gray */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 98%;
+        padding: 20px;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .profile-info h2{
+        font-size: 20px;
+    }
+    .profile-info p{
+        font-size: 14px;
+    }
+    .tab-links button {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    .projects-list li{
+        font-size: 14px;
+        padding: 15px;
+    }
+    .projects-list li strong{
+        font-size: 16px;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions button {
+        width: 100%;
+    }
+}
