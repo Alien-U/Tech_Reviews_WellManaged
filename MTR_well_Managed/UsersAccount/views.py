@@ -46,10 +46,5 @@ def handleLogout(request):
     return redirect('/')
 
 def ProfilePage(request):
-        try:
-            user_profile = request.user.profile  # Access the related Profile object
-            return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile})
-        except Profile.DoesNotExist:
-            # Handle the case where a Profile object doesn't exist for the user
-            # You might want to create one here or display a message
-            return render(request, 'UsersAccount/UserProfile.html', {'message': 'No profile found for this user.'})
+        user_profile =Profile.objects.get(user=request.user)  # Access the related Profile object
+        return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile})

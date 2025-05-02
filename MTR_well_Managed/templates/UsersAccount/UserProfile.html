@@ -13,9 +13,8 @@
                 <img src="/media/{{profile.Image}}" alt="">
             </div>
             <div class="profile-info">
-                <h2>{{user.username}},{{profile.user_Profile.username }}</h2>
+                <h2>{{user.username}},{{profile.my_edited_name }}</h2>
                 <p>{{user.email}}</p>
-                <p>Software Engineer</p>
             </div>
             <li class="list"><a href="/UsersAccount/logout"class="link">Logout</a></li>
         </div>
@@ -34,31 +33,23 @@
             </div>
         </div>
         <p class="profile-bio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            {{profile.Desc}}
         </p>
         <button id="edit-profile-btn">Edit Profile</button>
 
         <div class="edit-form" style="display: none;">
             <form>
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" value="John Doe">
+                    <label for="image">Image:</label>
+                    <input type="file" id="image" name="image">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="john.doe@example.com" disabled>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="">
                 </div>
                 <div class="form-group">
                     <label for="bio">Bio</label>
-                    <textarea id="bio" name="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
-                </div>
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" value="San Francisco, CA">
-                </div>
-                 <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="text" id="website" name="website" value="https://example.com">
+                    <textarea id="bio" name="bio"></textarea>
                 </div>
                 <div class="form-actions">
                     <button type="button" class="save">Save</button>
