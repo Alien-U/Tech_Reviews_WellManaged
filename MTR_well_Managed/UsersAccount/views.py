@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from.models import Profile
+from.forms import ProfileForm
 # Create your views here.
 def AccountPage(request):
     return render(request,'UsersAccount/LoginSignup.html')
@@ -46,5 +47,14 @@ def handleLogout(request):
     return redirect('/')
 
 def ProfilePage(request):
-        user_profile =Profile.objects.get(user=request.user)  # Access the related Profile object
-        return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile})
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES,instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            username=request.user.username
+            messages.success(request, f"Profile updated successfully for {username}.")
+            return redirect('/')
+    else:
+        form= ProfileForm(instance=request.user.profile)
+    user_profile =Profile.objects.get(user=request.user)  # Access the related Profile object
+    return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile,'form': form})  # Pass the profile object to the template

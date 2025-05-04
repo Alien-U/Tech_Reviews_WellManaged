@@ -13,7 +13,7 @@
                 <img src="/media/{{profile.Image}}" alt="">
             </div>
             <div class="profile-info">
-                <h2>{{user.username}},{{profile.my_edited_name }}</h2>
+                <h2>{{profile.my_edited_name }}</h2>
                 <p>{{user.email}}</p>
             </div>
             <li class="list"><a href="/UsersAccount/logout"class="link">Logout</a></li>
@@ -38,24 +38,28 @@
         <button id="edit-profile-btn">Edit Profile</button>
 
         <div class="edit-form" style="display: none;">
-            <form>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" id="image" name="image">
+                    <label for="image">Profile Image:</label>
+                    <div class="profile-avatar">
+                        <img src="/media/{{profile.Image}}" alt="">
+                    </div><br>
+                    {{form.Image}}
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" value="">
+                    {{form.my_edited_name}}
                 </div>
                 <div class="form-group">
                     <label for="bio">Bio</label>
-                    <textarea id="bio" name="bio"></textarea>
+                    {{form.Desc}}
                 </div>
                 <div class="form-actions">
-                    <button type="button" class="save">Save</button>
+                    <button type="submit" class="save">Save</button>
                     <button type="button" class="cancel">Cancel</button>
                 </div>
-            </form>
+            </form> 
         </div>
 
         <div class="tab-container">
