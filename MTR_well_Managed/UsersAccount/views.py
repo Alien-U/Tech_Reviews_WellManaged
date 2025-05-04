@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from.models import Profile
 from.forms import ProfileForm
+from Software.models import Software
+from Gaming.models import Gaming
+from Electronics.models import Electronics
 # Create your views here.
 def AccountPage(request):
     return render(request,'UsersAccount/LoginSignup.html')
@@ -56,5 +59,8 @@ def ProfilePage(request):
             return redirect('/')
     else:
         form= ProfileForm(instance=request.user.profile)
+    UserPostsSoft=Software.objects.filter(author=request.user)
+    UserPostsElect=Electronics.objects.filter(author=request.user)
+    UserPostsGame=Gaming.objects.filter(author=request.user)
     user_profile =Profile.objects.get(user=request.user)  # Access the related Profile object
-    return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile,'form': form})  # Pass the profile object to the template
+    return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile,'form': form,'UserPostsSoft':UserPostsSoft,'UserPostsElect':UserPostsElect,'UserPostsGame':UserPostsGame})  # Pass the profile object to the template

@@ -1,15 +1,23 @@
-
-        
-
-
-/* UsersAccount/UserProfile.css */
-
-/* body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 20px;
-} */
+.review-cards {
+    margin-left:3%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
+    gap: 25px; /* Adjust spacing between cards */
+  }
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
 
 .container {
     max-width: 800px;

@@ -64,14 +64,36 @@
 
         <div class="tab-container">
             <div class="tab-links">
-                <button class="tab-link active" data-tab="projects">Projects</button>
+                <button class="tab-link active" data-tab="projects">Posts</button>
                 <button class="tab-link" data-tab="activity">Activity</button>
             </div>
             <div id="projects" class="tab-content active">
-                <ul class="projects-list">
-                    <li><strong>Project A:</strong> A cool web application.</li>
-                    <li><strong>Project B:</strong> An open-source library.</li>
-                </ul>
+                <div class="review-cards">
+                    {% for i in UserPostsSoft %}
+                    <div class="card">
+                        <img src="/media/{{i.image}}" alt="Software 2">
+                        <h3>{{i.product_header}}</h3>
+                        <p>{{i.desc|slice:"0:103"|safe}}...</p>
+                        <a href="/Software/{{i.slug}}">Read Full Review</a>
+                    </div>
+                    {% endfor %}
+                    {% for i in UserPostsElect %}
+                    <div class="card">
+                        <img src="/media/{{i.image}}" alt="Software 2">
+                        <h3>{{i.product_header}}</h3>
+                        <p>{{i.desc|slice:"0:103"|safe}}...</p>
+                        <a href="/Electronics/{{i.slug}}">Read Full Review</a>
+                    </div>
+                    {% endfor %}
+                    {% for i in UserPostsGame %}
+                    <div class="card">
+                        <img src="/media/{{i.image}}" alt="Software 2">
+                        <h3>{{i.product_header}}</h3>
+                        <p>{{i.desc|slice:"0:103"|safe}}...</p>
+                        <a href="/Gaming/{{i.slug}}">Read Full Review</a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             <div id="activity" class="tab-content">
                 <p>Activity feed would go here (e.g., recent commits, posts, etc.).</p>
