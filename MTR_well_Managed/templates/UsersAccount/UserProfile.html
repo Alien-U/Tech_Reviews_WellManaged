@@ -75,6 +75,10 @@
                         <h3>{{i.product_header}}</h3>
                         <p>{{i.desc|slice:"0:103"|safe}}...</p>
                         <a href="/Software/{{i.slug}}">Read Full Review</a>
+                        <form action="/UsersAccount/deleteSoftpost/{{i.slug}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Delete Post</button>
+                        </form>
                     </div>
                     {% endfor %}
                     {% for i in UserPostsElect %}
@@ -83,6 +87,10 @@
                         <h3>{{i.product_header}}</h3>
                         <p>{{i.desc|slice:"0:103"|safe}}...</p>
                         <a href="/Electronics/{{i.slug}}">Read Full Review</a>
+                        <form action="/UsersAccount/deleteElectpost/{{i.slug}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Delete Post</button>
+                        </form>
                     </div>
                     {% endfor %}
                     {% for i in UserPostsGame %}
@@ -91,6 +99,10 @@
                         <h3>{{i.product_header}}</h3>
                         <p>{{i.desc|slice:"0:103"|safe}}...</p>
                         <a href="/Gaming/{{i.slug}}">Read Full Review</a>
+                        <form action="/UsersAccount/deleteGamepost/{{i.slug}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Delete Post</button>
+                        </form>
                     </div>
                     {% endfor %}
                 </div>
