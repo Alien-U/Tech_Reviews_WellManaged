@@ -47,6 +47,11 @@ INSTALLED_APPS = [
     'tinymce',
     'rest_framework',
     'rest_framework_simplejwt',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 REST_FRAMEWORK = {
@@ -108,6 +113,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'MTR_well_Managed.urls'
@@ -160,7 +166,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+SITE_ID = 1
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -186,3 +192,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS=[
     BASE_DIR,"static"
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "AUTH_PARAMS": {
+            "prompt": "select_account"
+        },
+        "APP": {
+            "client_id": "510462591618-hb45elou4e1vl463qjp6376e8lrvngfc.apps.googleusercontent.com",
+            "secret": "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",
+            "key": ""
+        }
+    }
+}
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = '/' 
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'

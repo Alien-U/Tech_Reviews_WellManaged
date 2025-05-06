@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'UsersAccount/LoginSignup.css' %}">
 </head>
 <body>
-
+{% load socialaccount %}
     <div class="loginContainer" id="loginContainer">
         <div class="login" id="login">
             <form id="loginForm" action="/UsersAccount/login" method="post">
@@ -20,6 +20,8 @@
                 <input id="butn" type="submit" value="Login">
                 {% csrf_token %}
             </form>
+            <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
             <p class="toggle-form" onclick="toggleForms('SignUpContainer', 'loginContainer')">Signup</p>
         </div>
     </div>
@@ -37,6 +39,8 @@
                 <input id="butn" type="submit" value="SignUp" name="SignUp">
                 {% csrf_token %}
             </form>
+            <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
             <p class="toggle-form" onclick="toggleForms('loginContainer', 'SignUpContainer')">Login</p>
         </div>
     </div>
