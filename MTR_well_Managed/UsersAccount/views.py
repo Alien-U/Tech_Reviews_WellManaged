@@ -7,6 +7,7 @@ from.forms import ProfileForm
 from Software.models import Software
 from Gaming.models import Gaming
 from Electronics.models import Electronics
+from rest_framework_simplejwt.authentication import JWTAuthentication
 # Create your views here.
 def AccountPage(request):
     return render(request,'UsersAccount/LoginSignup.html')
