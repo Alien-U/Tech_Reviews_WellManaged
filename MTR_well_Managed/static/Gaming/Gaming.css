@@ -3,123 +3,134 @@
     color: rgb(255, 255, 255);
     font-weight: bold;
   }
-/* Gadget categories styles */
+/* Gadget Categories Section (Reusing Styles) */
 .gadget-categories {
-  padding: 2rem 0;
-  margin-top: 12vh;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.gadget-categories h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 .gadget-categories ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-section h2{
-  text-align: center;
-  width: 30%;
-  margin: 0 auto; /* Center the h2 */
-  margin-bottom: 3%;
-  background-color:#002a54 ;
-  color: #fff;
-  margin-top:10px;
-  border-radius: 5px;
-          
-}
-ul form button{
-  padding: 10px 20px; 
-  background-color: #007bff; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-size: 16px; 
-  margin:1vw; 
+  gap: 10px;
 }
 
-ul form button:hover {
-  background-color: #0056b3; 
+.gadget-categories li {
+  margin: 5px;
 }
-/* Featured gadgets styles */
+
+.gadget-categories button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.gadget-categories button:hover {
+  background-color: #2980b9;
+}
+
+/* Featured Gadgets Section (Reusing and Adjusting Styles) */
 .featured-gadgets {
-padding: 1rem 0;
+  padding: 40px 20px;
+  background-color: white;
+}
+
+.featured-gadgets h2 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .gadget-cards {
-display: flex;
-justify-content: space-between;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
+
 .card-flexbox {
-display: flex;
-flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
-gap: 25px; /* Adjust spacing between cards */
-margin-left:46px;
-}
-.card {
-width: 300px;
-border: 1px solid #ccc;
-border-radius: 5px;
-padding: 2rem;
-text-align: center;
-/* {% comment %} flex: 1 0 250px;  {% endcomment %} */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center; /* Center the cards horizontally */
 }
 
-
-.card img {
-max-width: 100%;
-height: auto;
-margin-bottom: 1rem;
+.card-flexbox .card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(33.33% - 20px); /* Adjust width for desired number of columns */
+  min-width: 300px; /* Ensure a minimum width for smaller screens */
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px; /* Add some space below each card */
 }
-/* Responsive ness */
-/* For smaller screens (tablets and below) */
+
+.card-flexbox .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-flexbox .card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-flexbox .card h3 {
+  padding: 15px;
+  margin: 0;
+  font-size: 1.2em; /* Slightly smaller than before */
+  color: #333;
+}
+
+.card-flexbox .card p {
+  padding: 0 15px 15px;
+  margin: 0;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.card-flexbox .card a {
+  display: block;
+  padding: 10px 15px; /* Slightly less padding */
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: 0.95em; /* Slightly smaller font */
+}
+
+.card-flexbox .card a:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive adjustments for card layout */
+@media (max-width: 992px) {
+  .card-flexbox .card {
+      width: calc(50% - 15px);
+  }
+}
+
 @media (max-width: 768px) {
-  .gadget-categories {
-    margin-top: 3vh;
+  .card-flexbox .card {
+      width: 100%;
   }
-  section h2 {
-    width: 80%; /* Adjust h2 width */
-  }
-
-  .gadget-cards {
-    flex-direction: column; /* Stack gadget cards vertically */
-    align-items: center; /* Center them */
-  }
-
-  .card-flexbox {
-    justify-content: center; /* Center cards in flexbox */
-    margin-left: 0; /* Remove left margin */
-  }
-
-  .card {
-    width: 90%; /* Make cards wider */
-    max-width: 400px; /* Limit maximum width */
-    margin: 10px auto; /* Center cards and add margin */
-  }
-}
-
-/* For mobile screens */
-@media (max-width: 480px) {
-  section h2 {
-    width: 95%; /* Further widen h2 */
-  }
-
-  .gadget-categories li {
-    margin: 5px; /* Reduce category item margins */
-  }
-
-  .gadget-categories a {
-    padding: 3px 8px; /* Reduce category link padding */
-  }
-
-  .card {
-    padding: 1.5rem; /* Reduce card padding */
-  }
-}
-
-/* Larger screens adjustments */
-@media (min-width: 1200px) {
-    section h2 {
-        width: 25%;
-    }
 }

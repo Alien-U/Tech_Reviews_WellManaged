@@ -9,26 +9,49 @@
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        
         <div>
             <label for="product_Type">Type:</label>
-            <input type="text" name="post_type" id="post_type">
+            <select id="post_type" name="post_type"  required>
+            <option value="" disabled selected></option>
+            <option value="Electronics">Electronics</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Softwares">Softwares</option>
+        </select>
         </div>
         <br>
-
+        <div>
+            <label for="subcategory">Subcategory:</label>
+            <select id="subcategory" name="subcategory" placeholder="Select" required>
+            <option value="" disabled selected></option>
+            <option value="" disabled style="background-color:rgb(13, 10, 37);color:#fff;">Electronics</option>
+            <option value="Phones">Phones</option>
+            <option value="Laptops">Laptops</option>
+            <option value="Tablets">Tablets</option>
+            <option value="Wearables">Wearables</option>
+            <option value="Cameras">Cameras</option>
+            <option value="Audio">Audio</option>
+            <option value="Home Appliances">Home Appliances</option>
+            <option value="" disabled style="background-color:rgb(13, 10, 37);color:#fff;">Gaming</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Windows">Windows</option>
+            <option value="Mac">Mac</option>
+            <option value="Consoles">Consoles</option>
+            <option value="VR">VR</option>
+            <option value="" disabled style="background-color:rgb(13, 10, 37);color:#fff;">Softwares</option>
+            <option value="App">App</option>
+            <option value="Websites">Websites</option>
+            <option value="AI">AI</option>
+            <option value="System">System</option>
+            <option value="Antivirus">Antivirus</option>
+        </select>
+        </div>
+        <br>
         <div>
             <label for="product_header">Product Header:</label>
             <input type="text" id="product_header" name="product_header" maxlength="100" value="">
         </div>
         <br>
-        <br>
-
-        <div>
-            <label for="subcategory">Subcategory:</label>
-            <input type="text" id="subcategory" name="subcategory" maxlength="50" value="">
-        </div>
-        <br>
-
         <div>
             <label for="desc">Description:</label>
             <textarea id="desc" name="desc"></textarea>
@@ -41,6 +64,5 @@
         </div>
         <br>
         <button type="submit">Submit</button>
-
     </form>
 {% endblock  %}

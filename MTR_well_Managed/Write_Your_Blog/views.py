@@ -6,7 +6,7 @@ from django.utils.text import slugify
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.contrib import messages
-
+from tinymce.models import HTMLField
 def Start_Your_Post(request):
     if request.method == "POST":
         product_header = request.POST.get('product_header')
