@@ -24,7 +24,9 @@
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
-<h2 id="hedding">{{electronics.product_header}}</h2><br>
+<h1 id="hedding">{{electronics.product_header}}</h1>
+<p id="Author"><b>By {{electronics.author}}</b> ({{electronics.pub_date}} )</p>
+<br>
 <div id="imgframe">
     <img src="/media/{{electronics.image}}" alt="">
 </div><br>
@@ -98,8 +100,8 @@
     {% for i in Elect_Scroll %}
             <div class="card">
                 <img src="/media/{{i.image}}" alt="Smartphone">
-                <h3>{{i.product_header |slice:"0:93"}}...</h3>
-                <a href="/Electronics/{{i.slug}}">Read Review</a>
+                <a href="/Electronics/{{i.slug}}"><h3>{{i.product_header |slice:"0:93"}}</h3>
+                    <p>{{i.desc|slice:"0:103"|safe}}...</p></a>
             </div>
             <br><br>
     {% endfor %}

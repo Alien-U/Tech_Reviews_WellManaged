@@ -43,9 +43,8 @@
       {% for i in  allSoftware %}
         <div class="card"> 
             <img src="/media/{{i.image}}" alt="Smartphone">
-            <h3>{{i.product_header}}</h3>
-            <p>{{i.desc|slice:"0:103"|safe}}...</p>
-            <a href="{{i.slug}}">Read Review</a>
+            <a href="{{i.slug}}"><h3>{{i.product_header}}</h3>
+                <p>{{i.desc|slice:"0:103"|safe}}...</p></a>
         </div>
         {% endfor %}
       </div>

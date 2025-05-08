@@ -107,17 +107,6 @@
   font-size: 0.9em;
 }
 
-.card-flexbox .card a {
-  display: block;
-  padding: 10px 15px; /* Slightly less padding */
-  background-color: #3498db;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  font-size: 0.95em; /* Slightly smaller font */
-}
-
 .card-flexbox .card a:hover {
   background-color: #2980b9;
 }

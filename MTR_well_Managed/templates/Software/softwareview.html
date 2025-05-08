@@ -24,7 +24,9 @@
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
-<h2 id="hedding">{{software.product_header}}</h2><br>
+<h2 id="hedding">{{software.product_header}}</h2>
+<p id="Author"><b>By {{software.author}}</b> ({{software.pub_date}} )</p>
+<br>
 <div id="imgframe">
     <img src="/media/{{software.image}}" alt="">
 </div><br>
@@ -100,8 +102,8 @@
     {% for i in Soft_scroll %}
             <div class="card"> 
                 <img src="/media/{{i.image}}" alt="Smartphone">
-                <h3>{{i.product_header |slice:"0:93"}}...</h3>
-                <a href="/Software/{{i.slug}}">Read Review</a>
+                <a href="/Software/{{i.slug}}"><h3>{{i.product_header |slice:"0:93"}}</h3>
+                    <p>{{i.desc|slice:"0:103"|safe}}...</p></a>
             </div>
             <br><br>
     {% endfor %}

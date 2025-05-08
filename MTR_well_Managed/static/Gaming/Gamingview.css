@@ -7,7 +7,7 @@
 }
 
 #imgframe img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     margin-bottom: 1rem;
 }
@@ -16,6 +16,10 @@
     margin-top: 20vh;
     margin-left: 21%;
     width: 57%;
+}
+
+#Author{
+    margin-left:21%; 
 }
 
 #contframe {
@@ -35,19 +39,21 @@
 }
 
 .card {
-    width: 90%; /* Responsive width */
-    max-width: 600px; /* Limit maximum width */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 1rem;
-    text-align: center;
-    margin: 1rem auto; /* Center cards */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(73.33% - 20px); /* Adjust width for desired number of columns */
+    min-width: 300px; /* Ensure a minimum width for smaller screens */
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px; /* Add some space below each card */
 }
 
 .card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
 }
 
 /* Sidebar */

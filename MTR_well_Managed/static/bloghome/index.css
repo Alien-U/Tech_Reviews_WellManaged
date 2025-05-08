@@ -92,16 +92,7 @@ h2 {
   font-size: 0.9em;
 }
 
-.card a {
-  display: block;
-  padding: 12px 15px;
-  background-color: #3498db;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
-
+/* 
 .card a:hover {
   background-color: #2980b9;
 }

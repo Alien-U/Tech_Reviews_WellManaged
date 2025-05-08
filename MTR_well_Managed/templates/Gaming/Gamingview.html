@@ -24,7 +24,9 @@
     {% endfor %}
 </div>
 {% comment %} sidebar ended {% endcomment %}
-<h2 id="hedding">{{gaming.product_header}}</h2><br>
+<h1 id="hedding">{{gaming.product_header}}</h1>
+<p id="Author"><b>By {{gaming.author}}</b> ({{gaming.pub_date}} )</p>
+<br>
 <div id="imgframe">
     <img src="/media/{{gaming.image}}" alt="">
 </div><br>
@@ -102,8 +104,8 @@
     {% for i in gamescroll %}
             <div class="card"> 
                 <img src="/media/{{i.image}}" alt="Smartphone">
-                <h3>{{i.product_header |slice:"0:93"}}...</h3>
-                <a href="/Gaming/{{i.slug}}">Read Review</a>
+                <a href="/Gaming/{{i.slug}}"><h3>{{i.product_header |slice:"0:93"}}</h3>
+                <p>{{i.desc|slice:"0:103"|safe}}...</p></a>
             </div>
             <br><br>
     {% endfor %}
