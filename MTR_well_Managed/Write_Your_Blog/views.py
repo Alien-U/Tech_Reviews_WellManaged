@@ -7,7 +7,9 @@ from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.contrib import messages
 from tinymce.models import HTMLField
+from .forms import ProductForm
 def Start_Your_Post(request):
+    fn=ProductForm()
     if request.method == "POST":
         product_header = request.POST.get('product_header')
         subcategory = request.POST.get('subcategory')
@@ -51,4 +53,4 @@ def Start_Your_Post(request):
         messages.success(request,"Sucessfully Posted")# Replace 'some_success_url' with your desired URL
 
     # If the request method is not POST, you might want to render a form
-    return render(request, 'Write_Your_Blog/Start_Your_Post.html') # Replace 'your_template.html' with your form template
+    return render(request, 'Write_Your_Blog/Start_Your_Post.html',{'form':fn}) # Replace 'your_template.html' with your form template

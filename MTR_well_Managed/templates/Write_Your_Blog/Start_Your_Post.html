@@ -7,7 +7,7 @@
 {% block body %}
     <h1 id="Texts">Enter Gaming Product Details</h1>
 
-    <form method="post" enctype="multipart/form-data">
+    {% comment %} <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
             <label for="product_Type">Type:</label>
@@ -64,6 +64,11 @@
         </div>
         <br>
         <button type="submit">Submit</button>
+    </form> {% endcomment %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{form}}
+        <button type="submit">Submit</button>
     </form>
-     
 {% endblock  %}
