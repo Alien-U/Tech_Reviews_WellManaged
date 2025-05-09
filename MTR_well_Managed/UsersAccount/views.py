@@ -8,6 +8,8 @@ from Software.models import Software
 from Gaming.models import Gaming
 from Electronics.models import Electronics
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def AccountPage(request):
     return render(request,'UsersAccount/LoginSignup.html')
@@ -45,11 +47,13 @@ def handleLogin(request):
            return redirect('/')   
     return HttpResponse("404-Not Found")
 
+@login_required
 def handleLogout(request):
     logout(request)
     messages.success(request,"successfully logged out")
     return redirect('/')
 
+@login_required
 def ProfilePage(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES,instance=request.user.profile)

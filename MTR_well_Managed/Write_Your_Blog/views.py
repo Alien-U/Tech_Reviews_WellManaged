@@ -8,6 +8,9 @@ from django.core.files.base import ContentFile
 from django.contrib import messages
 from tinymce.models import HTMLField
 from .forms import ProductForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def Start_Your_Post(request):
     fn=ProductForm()
     if request.method == "POST":

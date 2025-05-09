@@ -5,6 +5,7 @@ from Gaming.models import Gaming
 from Software.models import Software
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     Elect_Scroll=Electronics.objects.all()
@@ -13,6 +14,7 @@ def home(request):
     params={'Soft_scroll':Soft_scroll,'Elect_Scroll':Elect_Scroll,'gamescroll':gamescroll}
     return render(request,'bloghome/index.html',params)
 
+@login_required
 def contact(request):
     if request.method=="POST":
         name=request.POST.get('name','')

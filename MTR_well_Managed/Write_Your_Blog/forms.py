@@ -1,5 +1,6 @@
 from django import forms
 from tinymce.widgets import TinyMCE
+
 class ProductForm(forms.Form):
     label="Type:",
     POST_TYPE_CHOICES = [
@@ -11,7 +12,6 @@ class ProductForm(forms.Form):
 
     SUBCATEGORY_CHOICES = [
         ('', '---------'),
-        # ('', 'Electronics', {'disabled': 'disabled', 'style': 'background-color:rgb(13, 10, 37);color:#f;'}),
         ('Phones', 'Phones'),
         ('Laptops', 'Laptops'),
         ('Tablets', 'Tablets'),
