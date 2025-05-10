@@ -32,8 +32,8 @@ def about(request):
 
 def search(request):
     query=request.GET['query']
-    allElects=Electronics.objects.filter(product_header__icontains=query)
-    allSofts=Software.objects.filter(product_header__icontains=query)
-    allGames=Gaming.objects.filter(product_header__icontains=query)
+    allElects=Electronics.objects.filter(desc__icontains=query)
+    allSofts=Software.objects.filter(desc__icontains=query)
+    allGames=Gaming.objects.filter(desc__icontains=query)
     params={'allElects':allElects,'allSofts':allSofts,'allGames':allGames,'query':query}
     return render(request,'bloghome/search.html',params)

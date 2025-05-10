@@ -1,78 +1,130 @@
+body {
+  margin-top: 10%;
+}
 
-        body {
-            margin-top: 10%;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .NotFound {
-            text-align: center;
-            background: #ffffff;
-            padding:19% 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 234, 255, 0.1);
-        }
-        .message {
-            font-size: 28px;
-            color: rgba(85, 85, 85, 0.6);
-        }
-        main {
-            padding: 20px 0;
-        }
-        
-        #search-info {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        #search-info h2 {
-            margin-top: 0;
-        }
-        
-        #search-results-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .search-result-item {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        
-        .search-result-item h3 {
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        
-        .search-result-item h3 a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        
-        .search-result-item h3 a:hover {
-            text-decoration: underline;
-        }
-        
-        .search-result-item .review-excerpt {
-            color: #555;
-            margin-bottom: 10px;
-        }
-        
-        .search-result-item .review-date {
-            color: #777;
-            font-size: 0.9em;
-        }
-        
-        #no-results {
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.NotFound {
+  text-align: center;
+  background: #ffffff;
+  padding: 19% 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 234, 255, 0.1);
+}
+
+.message {
+  font-size: 28px;
+  color: rgba(85, 85, 85, 0.6);
+}
+
+main {
+  padding: 20px 0;
+}
+
+#search-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#search-info h2 {
+  margin-top: 0;
+}
+
+#search-results-list {
+  list-style: none;
+  padding: 0;
+}
+
+.search-result-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+}
+
+.search-result-item > div {
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.search-result-item img {
+  display: block;
+  max-width: 120px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.search-result-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-result-item h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+.search-result-item h3 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.search-result-item h3 a:hover {
+  color: #007bff;
+}
+
+.search-result-item p.review-excerpt {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.search-result-item p.review-date {
+  color: #777;
+  font-size: 0.9em;
+  margin-bottom: 0;
+}
+
+#no-results {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Media query for screens smaller than 768px (typical for phones) */
+@media screen and (max-width: 768px) {
+  .search-result-item {
+    flex-direction: column; /* Stack image and text on top of each other */
+  }
+
+  .search-result-item > div {
+    margin-right: 0; /* Remove right margin on image */
+    margin-bottom: 10px; /* Add margin below image */
+  }
+
+  .search-result-item img {
+    max-width: 100%; /* Make image take full width of container */
+    height: auto;    /* Maintain aspect ratio */
+  }
+
+  .message {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+  .NotFound{
+    padding: 20px;
+  }
+  body{
+    margin-top: 15%;
+  }
+}

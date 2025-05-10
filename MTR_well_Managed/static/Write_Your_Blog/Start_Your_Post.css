@@ -1,8 +1,9 @@
 #Texts {
+    margin-top:20vh;
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #7d7c7c;
   }
   
   form {
@@ -81,6 +82,9 @@
   }
   
   @media (max-width: 768px) {
+    #Texts {
+    margin-top:10vh;
+  }
     form {
       padding: 15px;
     }

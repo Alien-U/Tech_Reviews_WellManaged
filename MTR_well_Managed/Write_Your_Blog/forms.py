@@ -32,8 +32,19 @@ class ProductForm(forms.Form):
         ('Antivirus', 'Antivirus'),
     ]
 
-    post_type = forms.ChoiceField(choices=POST_TYPE_CHOICES, required=True)
-    subcategory = forms.ChoiceField(choices=SUBCATEGORY_CHOICES, required=True)
-    product_header = forms.CharField(max_length=100, required=False)
-    desc=forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 10}), required=False)
-    image = forms.ImageField(required=False)
+    post_type = forms.ChoiceField(choices=POST_TYPE_CHOICES, required=False,label="Choose Right field")
+    subcategory = forms.ChoiceField(choices=SUBCATEGORY_CHOICES, required=True,label="Choose right subcategory")
+    product_header = forms.CharField(
+    max_length=100, 
+    required=True, 
+    label="Heading of your post"
+    )
+    image = forms.ImageField( 
+    required=True, 
+    label="Provoide the main image of your post"
+    )
+    desc=forms.CharField( 
+    widget=TinyMCE(attrs={'cols': 80, 'rows': 10}),
+    required=True,
+    label="Start writing your post here"
+    )

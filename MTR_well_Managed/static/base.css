@@ -76,8 +76,8 @@ margin: 3px 0;
 transition: 0.4s;
 }
 footer {
-background-color:rgb(4, 149, 222);
-color: #fff;
+background-color:rgba(163, 164, 164, 0.3);
+color: #000000;
 text-align: center;
 padding: 1rem 0;
 }

@@ -18,23 +18,38 @@
         <section id="search-results-list">
         {% for i in allElects %}
             <div class="search-result-item">
-                <h3><a href="#">{{i.product_header}}</a></h3>
+            <div>
+                <img src="/media/{{i.image}}" alt="">
+            </div>
+            <div class="search-result-item-details">
+                <a href="/Electronics/{{i.slug}}"><h3>{{i.product_header}}</h3>
                 <p class="review-excerpt">{{i.desc|slice:"0:103"|safe}}...</p>
-                <p class="review-date">Published on:{{i.pub_date}}</p>
+                <p class="review-date">Published on:{{i.pub_date}}</p></a>
+            </div>
             </div>
         {% endfor %}
         {% for i in allSofts %}
             <div class="search-result-item">
-                <h3><a href="#">{{i.product_header}}</a></h3>
+            <div>
+                <img src="/media/{{i.image}}" alt="">
+            </div>
+            <div class="search-result-item-details">
+                <a href="/Software/{{i.slug}}"><h3>{{i.product_header}}</h3>
                 <p class="review-excerpt">{{i.desc|slice:"0:103"|safe}}...</p>
-                <p class="review-date">Published on:{{i.pub_date}}</p>
+                <p class="review-date">Published on:{{i.pub_date}}</p></a>
+            </div>
             </div>
         {% endfor %}
         {% for i in allGames %}
             <div class="search-result-item">
-                <h3><a href="#">{{i.product_header}}</a></h3>
+                <div>
+                <img src="/media/{{i.image}}" alt="">
+            </div>
+            <div class="search-result-item-details">
+                <a href="/Gaming/{{i.slug}}"><h3>{{i.product_header}}</h3>
                 <p class="review-excerpt">{{i.desc|slice:"0:103"|safe}}...</p>
-                <p class="review-date">Published on:{{i.pub_date}}</p>
+                <p class="review-date">Published on:{{i.pub_date}}</p></a>
+            </div>
             </div>
         {% endfor %}
     </section>

@@ -41,7 +41,7 @@
           </ul>
       </nav>
       <form action="/search"method="get"id="searchForm"class="searchForm">
-        <input type="search"name="query" placeholder="Search" id="search">
+        <input type="search"name="query" placeholder="Search" id="search" required>
         <button id="Search_Btn"type="submit">Search</button>
       </form>
   </header>
@@ -57,7 +57,7 @@
     {% endif %}
     {% block body %}{% endblock %}
     <footer>
-        <p>&copy; Tech Reviews</p>
+        <p>&copy; Tech Reviews India</p>
     </footer>
 
 </body>
