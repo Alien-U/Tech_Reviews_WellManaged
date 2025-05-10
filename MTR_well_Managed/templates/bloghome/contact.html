@@ -10,11 +10,8 @@
 
 <form id="Contact_form"action="/contact/" method="POST"> 
     {% csrf_token %}
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="text" id="name" name="name" value="{{user.username}}" hidden required>
+    <input type="email" id="email" name="email" value="{{user.email}}" hidden required>
 
     <label for="subject">Subject:</label>
     <input type="text" id="subject" name="subject">
