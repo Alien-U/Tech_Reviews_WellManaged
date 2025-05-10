@@ -13,16 +13,21 @@
         <div class="login" id="login">
             <form id="loginForm" action="/UsersAccount/login" method="post">
                 <br>
-                <h2><i>Login :</i></h2>
+                <h2>Login :</h2>
+                <p style="color:gray">Once you log in, you can post a blog and more.</p>
                 <br><input type="text" placeholder="Username" id="Loginusername" name="Loginusername"><br>
                 <input type="password" placeholder="Password" required id="LoginPass" name="LoginPass"><br>
                 <br><br>
                 <input id="butn" type="submit" value="Login">
                 {% csrf_token %}
             </form>
-            <a href="{% provider_login_url 'google' %}">Login with Google</a>
-
-            <p class="toggle-form" onclick="toggleForms('SignUpContainer', 'loginContainer')">Signup</p>
+            <a href="{% provider_login_url 'google' %}">
+            <div class="googlelog">
+                <img src="{% static 'UsersAccount/search.png' %}" alt="">
+                <p>Continue with Google</p>
+            </div>
+            </a>
+            <p class="toggle-form" onclick="toggleForms('SignUpContainer', 'loginContainer')">Do not have an account? Signup</p>
         </div>
     </div>
 
@@ -30,7 +35,8 @@
         <div class="SignUp" id="SignUp">
             <form action="/UsersAccount/signup" method="post" id="signupForm">
                 <br>
-                <h2><i>Sign Up</i></h2>
+                <h2>SignUp :</h2>
+                <p style="color:gray">Once you SignUp, you can post a blog and more.</p>
                 <input type="text" placeholder="Username" id="username" name="username"><br>
                 <input type="text" placeholder="First name" id="Fname" name="Fname"><br>
                 <input type="text" placeholder="Last name" id="Lname" name="Lname"><br>
@@ -39,9 +45,13 @@
                 <input id="butn" type="submit" value="SignUp" name="SignUp">
                 {% csrf_token %}
             </form>
-            <a href="{% provider_login_url 'google' %}">Login with Google</a>
-
-            <p class="toggle-form" onclick="toggleForms('loginContainer', 'SignUpContainer')">Login</p>
+            <a href="{% provider_login_url 'google' %}">
+            <div class="googlelog">
+                <img src="{% static 'UsersAccount/search.png' %}" alt="">
+                <p>SignUp with Google</p>
+            </div>
+            </a>
+            <p class="toggle-form" onclick="toggleForms('loginContainer', 'SignUpContainer')">Have an account? Login</p>
         </div>
     </div>
 

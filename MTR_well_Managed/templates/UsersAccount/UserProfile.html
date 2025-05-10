@@ -75,6 +75,10 @@
                         <h3>{{i.product_header}}</h3>
                         <p>{{i.desc|slice:"0:103"|safe}}...</p>
                         <a href="/Software/{{i.slug}}">Read Full Review</a>
+                        <button onclick='show_confirmation(this)'>Delete</button>
+                    </div>
+                    <div class="confirmation">
+                        <p>Are you sure to Delete this post titeled <b>{{i.slug}}</b></p>
                         <form action="/UsersAccount/deleteSoftpost/{{i.slug}}" method="post">
                             {% csrf_token %}
                             <button type="submit">Delete Post</button>
@@ -87,6 +91,10 @@
                         <h3>{{i.product_header}}</h3>
                         <p>{{i.desc|slice:"0:103"|safe}}...</p>
                         <a href="/Electronics/{{i.slug}}">Read Full Review</a>
+                        <button onclick='show_confirmation(this)'>Delete</button>
+                    </div>
+                    <div class="confirmation">
+                        <p>Are you sure to Delete this post titeled <b>{{i.slug}}</b></p>
                         <form action="/UsersAccount/deleteElectpost/{{i.slug}}" method="post">
                             {% csrf_token %}
                             <button type="submit">Delete Post</button>
@@ -99,6 +107,10 @@
                         <h3>{{i.product_header}}</h3>
                         <p>{{i.desc|slice:"0:103"|safe}}...</p>
                         <a href="/Gaming/{{i.slug}}">Read Full Review</a>
+                        <button onclick='show_confirmation(this)'>Delete</button>
+                    </div>
+                    <div class="confirmation">
+                        <p>Are you sure to Delete this post titeled <b>{{i.slug}}</b></p>
                         <form action="/UsersAccount/deleteGamepost/{{i.slug}}" method="post">
                             {% csrf_token %}
                             <button type="submit">Delete Post</button>
@@ -197,5 +209,28 @@
             profileInfo.style.display = 'block';
             profileStats.style.display = 'flex';
         });
-    </script>
+
+{% comment %} js function for showing confirmation for delition{% endcomment %}
+        function show_confirmation(button) {
+            // Hide all confirmation divs first
+            document.querySelectorAll(".confirmation").forEach(div => {
+                div.style.display = "none";
+            });
+
+            // Show the corresponding confirmation div
+            const confirmationDiv = button.parentElement.nextElementSibling;
+            if (confirmationDiv && confirmationDiv.classList.contains("confirmation")) {
+                confirmationDiv.style.display = "block";
+
+                // Add event listener to detect clicks outside the confirmation div
+                document.addEventListener("click", function hideDiv(event) {
+                    if (!confirmationDiv.contains(event.target) && event.target !== button) {
+                        confirmationDiv.style.display = "none";
+                        document.removeEventListener("click", hideDiv);
+                    }
+                });
+            }
+        }
+
+</script>
 {% endblock %}
