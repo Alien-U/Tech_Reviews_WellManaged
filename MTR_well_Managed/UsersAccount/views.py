@@ -67,26 +67,26 @@ def ProfilePage(request):
     UserPostsSoft=Software.objects.filter(author=request.user)
     UserPostsElect=Electronics.objects.filter(author=request.user)
     UserPostsGame=Gaming.objects.filter(author=request.user)
-    user_profile =Profile.objects.get(user=request.user)  # Access the related Profile object
+    user_profile =Profile.objects.get(user=request.user) 
     return render(request, 'UsersAccount/UserProfile.html', {'profile': user_profile,'form': form,'UserPostsSoft':UserPostsSoft,'UserPostsElect':UserPostsElect,'UserPostsGame':UserPostsGame})  # Pass the profile object to the template
 
 def deleteElectpost(request,slug):
     if request.method == "POST":
         CurrentUserPost = Electronics.objects.filter(author=request.user,slug=slug).first()
         CurrentUserPost.delete()
-        messages.success(request,"Sucessfully Deleted")# Replace 'some_success_url' with your desired URL
+        messages.success(request,"Sucessfully Deleted")
     return redirect('ProfilePage')
 
 def deleteGamepost(request,slug):
     if request.method == "POST":
         CurrentUserPost = Gaming.objects.filter(author=request.user,slug=slug).first()
         CurrentUserPost.delete()
-        messages.success(request,"Sucessfully Deleted")# Replace 'some_success_url' with your desired URL
+        messages.success(request,"Sucessfully Deleted")
     return redirect('ProfilePage')
 
 def deleteSoftpost(request,slug):
     if request.method == "POST":
         CurrentUserPost = Software.objects.filter(author=request.user,slug=slug).first()
         CurrentUserPost.delete()
-        messages.success(request,"Sucessfully Deleted")# Replace 'some_success_url' with your desired URL
+        messages.success(request,"Sucessfully Deleted")
     return redirect('ProfilePage')

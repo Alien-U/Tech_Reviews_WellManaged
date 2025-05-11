@@ -17,7 +17,6 @@ def Start_Your_Post(request):
         product_header = request.POST.get('product_header')
         subcategory = request.POST.get('subcategory')
         desc = request.POST.get('desc')
-        # author = request.POST.get('author')
         image = request.FILES.get('image')
         post_type = request.POST.get('post_type')
         # Create a new instance of your model
@@ -52,8 +51,5 @@ def Start_Your_Post(request):
         # Save the new model instance to the database
         new_post.save()
 
-        # Optionally, you can redirect the user to another page after successful saving
-        messages.success(request,"Sucessfully Posted")# Replace 'some_success_url' with your desired URL
-
-    # If the request method is not POST, you might want to render a form
-    return render(request, 'Write_Your_Blog/Start_Your_Post.html',{'form':fn}) # Replace 'your_template.html' with your form template
+        messages.success(request,"Sucessfully Posted")
+    return render(request, 'Write_Your_Blog/Start_Your_Post.html',{'form':fn})
