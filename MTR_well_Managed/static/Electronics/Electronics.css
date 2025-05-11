@@ -3,6 +3,18 @@
     color: rgb(255, 255, 255);
     font-weight: bold;
   }
+
+  .NotFound {
+  text-align: center;
+  background: #ffffff;
+  padding: 9% 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 234, 255, 0.1);
+}
+.message {
+  font-size: 28px;
+  color: rgba(85, 85, 85, 0.6);
+}
 /* Gadget Categories Section */
 .gadget-categories {
   padding: 40px 20px;

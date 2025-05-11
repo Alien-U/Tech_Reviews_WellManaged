@@ -1,3 +1,15 @@
+.NotFound {
+  text-align: center;
+  background: #ffffff;
+  padding: 9% 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 234, 255, 0.1);
+}
+.message {
+  font-size: 28px;
+  color: rgba(85, 85, 85, 0.6);
+}
+
 .card {
     width: 300px;
     border: 1px solid #ccc;
@@ -143,7 +155,8 @@
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin:0 auto;
+    margin-top: 10vh;
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
@@ -379,4 +392,9 @@ h1 {
 .projects-list li strong {
     font-weight: bold;
     color: #333;
+}
+@media screen and (max-width: 768px) {
+    .container{
+        margin-top: 5%;
+    }
 }

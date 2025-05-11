@@ -1,7 +1,7 @@
 #imgframe {
     width: 57%;
     margin: 0 auto;
-    border: solid rgb(0, 46, 99);;
+    border: solid rgba(0, 46, 99, 0.452);;
     padding: 1%;
     text-align: center;
 }

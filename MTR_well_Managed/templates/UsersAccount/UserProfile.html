@@ -7,7 +7,7 @@
 {% block body %}
 
     <div class="container">
-        <h1>User Profile</h1>
+        <h1>My Profile</h1>
         <div class="profile-header">
             <div class="profile-avatar">
                 <img src="/media/{{profile.Image}}" alt=""height="90px" width="90px">
@@ -18,7 +18,7 @@
             </div>
             <li class="list"><a href="/UsersAccount/logout"class="link">Logout</a></li>
         </div>
-        <div class="profile-stats">
+        {% comment %} <div class="profile-stats">
             <div>
                 <strong>125</strong>
                 <span>Followers</span>
@@ -31,7 +31,7 @@
                 <strong>230</strong>
                 <span>Contributions</span>
             </div>
-        </div>
+        </div> {% endcomment %}
         <p class="profile-bio">
             {{profile.Desc}}
         </p>
@@ -68,6 +68,11 @@
                 <button class="tab-link" data-tab="activity">Activity</button>
             </div>
             <div id="projects" class="tab-content active">
+            {% if UserPostsSoft|length < 1  %}
+                <div class="NotFound">
+                <div class="message"><b>No posts yet !...</b></div>
+            </div>
+            {% endif %}
                 <div class="review-cards">
                     {% for i in UserPostsSoft %}
                     <div class="card">

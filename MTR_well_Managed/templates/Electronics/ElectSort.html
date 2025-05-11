@@ -54,6 +54,11 @@
 </section>
     <section class="featured-gadgets">
         <h2>Featured articles on Electronics</h2>
+        {% if allElects|length < 1  %}
+        <div class="NotFound">
+            <div class="message"><b>No Results !...</b></div>
+        </div>
+        {% endif %}
         <div class="gadget-cards">
           <div class="card-flexbox"> 
           {% for i in allElects %}

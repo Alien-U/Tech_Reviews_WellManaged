@@ -53,3 +53,21 @@
       font-size: 28px;
       color: rgba(85, 85, 85, 0.6);
   }
+@media screen and (max-width: 721px) {
+  /* Responsive styles for smaller screens */
+  #Contact_form {
+      width: 90%;
+      margin: 0 auto;
+  }
+  
+  #Contact_Button {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+  }
+  
+  .message {
+      font-size: 24px;
+  }
+  
+}

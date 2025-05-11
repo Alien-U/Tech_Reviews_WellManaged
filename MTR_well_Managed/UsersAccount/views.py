@@ -27,7 +27,7 @@ def handleSignup(request):
         myuser.first_name = Fname
         myuser.last_name = Lname
         myuser.save()
-        login(request, myuser)#login for authenticating user
+        login(request, myuser,backend='django.contrib.auth.backends.ModelBackend')#login for authenticating user
         messages.success(request,"Your account has been successfully created")
         return redirect('/')
     else:

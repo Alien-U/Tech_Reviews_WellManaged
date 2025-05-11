@@ -49,6 +49,11 @@
 </section>
 <section class="featured-gadgets">
     <h2>Featured articles on Gaming Tools</h2>
+    {% if allGames|length < 1 %}
+        <div class="NotFound">
+            <div class="message"><b>No Results !...</b></div>
+        </div>
+    {% endif %}
     <div class="gadget-cards">
       <div class="card-flexbox"> 
       {% for i in allGames %}
