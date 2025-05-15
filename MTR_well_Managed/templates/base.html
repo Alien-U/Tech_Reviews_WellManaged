@@ -17,22 +17,21 @@
     </div>
       <p id="brandLogo"><i>Tech Reviews India</i></p>
       <div id="searcUserCont">
-
         <img src="{% static 'bloghome/Search.png' %}" alt="" id="Searchicon"onclick="openSearch()" height="30px" width="30px">
       {% if user.is_authenticated %}
-        <a href="/UsersAccount/Profile"><img src="{% static 'bloghome/user-50.png' %}" alt="" id="Usericon" height="39px" width="39px"></a>
+        <a href="/UsersAccount/Profile"> <img src="/media/{{user.profile.Image}}"alt="" id="Usericon" height="39px" width="39px"></a>
       {% else %}
         <a href="/UsersAccount"><img src="{% static 'bloghome/Createaccount.png' %}" alt=""  id="Usericon" class="colored-image"height="39px" width="39px"></a>
       {% endif %}
       </div>
       <nav>
           <ul id="navbar-ul">
-              <li><a href="/" class="H">Home</a></li>
-              <li><a href="/Electronics" class="G">Electronics</a></li>
-              <li><a href="/Software" class="S">Software</a></li>
-              <li><a href="/Gaming" class="g">Gaming</a></li>
-              <li><a href="/about" class="A">About</a></li>
-              <li><a href="/contact" class="C">Contact</a></li>
+              <a href="/" class="H"><li>Home</li></a>
+              <a href="/Electronics" class="G"><li>Electronics</li></a>
+              <a href="/Software" class="S"><li>Software</li></a>
+              <a href="/Gaming" class="g"><li>Gaming</li></a>
+              <a href="/about" class="A"><li>About</li></a>
+              <a href="/contact" class="C"><li>Contact</li></a>
               {% if user.is_authenticated %}
                   <li id="Write"><a href="/Write_Your_Blog"><img src="{% static 'bloghome/edit.png' %}" alt=""height="25px" width="25px"class="colored-image"></a></li>
               {% else %}

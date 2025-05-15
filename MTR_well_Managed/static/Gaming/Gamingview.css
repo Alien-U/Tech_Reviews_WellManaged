@@ -1,15 +1,17 @@
 #imgframe {
     width: 57%;
+    height: auto;
     margin: 0 auto;
     border: solid rgba(0, 46, 99, 0.452);;
     padding: 1%;
     text-align: center;
 }
-
+a{
+    text-decoration: none;
+}
 #imgframe img {
     width: 100%;
     height: auto;
-    margin-bottom: 1rem;
 }
 
 #hedding {
@@ -100,6 +102,7 @@
     }
 
     #hedding,
+    #Author,
     #contframe,
     .Cmtcontainer,
     .Related_Cont,
@@ -119,18 +122,22 @@
 }
 
 @media (max-width: 768px) {
-    #hedding {
-        margin-top: 11vh; /* Reduce top margin on very small screens */
+    #hedding{
+        margin-top:11vh; /* Reduce top margin on very small screens */
+    }
+    #Author{
+        margin-top:3vh; 
+        margin-bottom: 3vh;
     }
 }
-
 @media (max-width: 480px) {
     #hedding,
+    #Author,
     #contframe,
     .Cmtcontainer,
     .Related_Cont,
     #imgframe {
-        width: 95%; /* Even wider on very small screens */
+        width: 95%;/* Even wider on very small screens */
         margin-left: 2.5%;
     }
 

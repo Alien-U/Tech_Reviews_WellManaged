@@ -21,6 +21,11 @@ background-color: rgb(4, 149, 222);
   margin-top: 0.5rem;
 } 
 
+a
+{
+  text-decoration: none;
+  color: inherit;
+}
 
 nav ul {
 list-style: none;
@@ -84,7 +89,16 @@ padding: 1rem 0;
 /* Responsive Design */
 /* mediaquery */
 @media screen and (max-width: 768px) {
-
+a
+{
+  border-top:solid 1px #2a526a;
+  text-decoration: none;
+  color: inherit;
+}
+a :hover
+{
+  background-color: #003256;;
+}
   #Write
 {
   width:15%;
